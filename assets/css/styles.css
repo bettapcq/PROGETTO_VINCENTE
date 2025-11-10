@@ -1,0 +1,8 @@
+.card i {
+    font-size: 1.6rem !important
+}
+
+.card-body img{
+    width: auto !important;
+    height: 25px !important;
+}
