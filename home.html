@@ -17,10 +17,12 @@
   </head>
   <body data-bs-theme="dark">
     <header>
-      <nav class="navbar bg-dark navbar-expand-sm">
-        <div class="container-fluid justify-content-between">
+      <nav
+        class="navbar navbar-nav-scroll fixed-top bg-dark justify-content-between navbar-expand"
+      >
+        <div class="container-fluid">
           <a class="navbar-brand" href="#">Buonasera</a>
-          <button
+          <!-- <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -30,11 +32,9 @@
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          </button> -->
+          <div class="flex-row" id="navbarNavDropdown">
             <ul class="navbar-nav">
-
-                
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -83,13 +83,19 @@
                 >
                   <i class="bi bi-gear"></i>
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">Account</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Billings</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Premium</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Privacy</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Settings</a>
                   </li>
                 </ul>
               </li>
@@ -98,12 +104,154 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="mt-5">
       <section>
-        <!-- sezione con due colonne e tre righe -->
+        <div class="row row-cols-2 p-3 text-white">
+          <div class="col col-2"><a>Musica</a></div>
+          <div class="col col-5"><a>Podcast e show</a></div>
+        </div>
+        <div class="row row-cols-2 p-3 g-2">
+          <!-- small cards -->
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="img-fluid rounded-start"
+                  alt="preview"
+                  style="min-width: 50px; min-height: 50px"
+                />
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h5 class="card-title">playlist name</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="img-fluid rounded-start"
+                  alt="preview"
+                  style="min-width: 50px; min-height: 50px"
+                />
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h5 class="card-title">playlist name</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="img-fluid rounded-start"
+                  alt="preview"
+                  style="min-width: 50px; min-height: 50px"
+                />
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h5 class="card-title">playlist name</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="img-fluid rounded-start"
+                  alt="preview"
+                  style="min-width: 50px; min-height: 50px"
+                />
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h5 class="card-title">playlist name</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="img-fluid rounded-start"
+                  alt="preview"
+                  style="min-width: 50px; min-height: 50px"
+                />
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h5 class="card-title">playlist name</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="img-fluid rounded-start"
+                  alt="preview"
+                  style="min-width: 50px; min-height: 50px"
+                />
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h5 class="card-title">playlist name</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section>
         <!-- cards che scrollano -->
+        <div class="card mb-3 border-0">
+          <div class="row g-0">
+            <div class="col">
+              <img
+                src="./assets/imgs/main/image-1.jpg"
+                class="img-fluid rounded-start"
+                alt="preview"
+                style="min-width: 50px; min-height: 50px"
+              />
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h5 class="card-title">playlist name</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 border-0">
+          <div class="row g-0">
+            <div class="col">
+              <img
+                src="./assets/imgs/main/image-1.jpg"
+                class="img-fluid rounded-start"
+                alt="preview"
+                style="min-width: 50px; min-height: 50px"
+              />
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h5 class="card-title">playlist name</h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section>
         <!-- fixed player -->
