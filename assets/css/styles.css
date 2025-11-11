@@ -71,3 +71,44 @@ main {
     font-size: 8px;
     padding: 6px !important;
 }
+/* barra musica */
+
+.music-bar {
+  position: sticky;
+  bottom: 72px;
+  background-color: #181818;
+  color: white;
+  height: 55px;
+}
+
+.music-bar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 55%;
+}
+
+.track-info {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.track-controls i {
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* artist page */
+
+#artist_header{
+  background-image: url(/assets/imgs/search/image-22.jpg);
+  background-size: cover;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+#artist_header h1{
+  padding-top: 32%;
+  padding-bottom: 3%;
+}
