@@ -17,75 +17,190 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body data-bs-theme="dark">
-    <header>
-      <div id="artist_header">
-        <i
-          class="bi bi-arrow-left btn btn-secondary rounded-circle px-1 py-0"
-        ></i>
-        <h1 class="fw-bolder text-white w-75">Pinguini Tattici Nucleari</h1>
-      </div>
-    </header>
-    <main class="container">
-      <p class="small text-secondary">
-        <span id="randomNumber">35952</span> - ascoltatori mensili
-      </p>
+    <main class="container-fluid mx-md-1">
       <div class="container-fluid">
-        <div class="row row-cols-2 px-2">
-          <div class="col d-flex flex-nowrap align-items-center fs-2">
-            <button class="btn btn-outline-secondary">Seguiti</button>
-            <i class="bi bi-three-dots-vertical ms-2"></i>
-          </div>
-          <div
-            class="col d-flex flex-nowrap align-items-center justify-content-end fs-2"
-          >
-            <i class="bi bi-shuffle me-4"></i>
-            <i class="bi bi-play-circle-fill text-success fs-1"></i>
-          </div>
-        </div>
-
-        <div class="row mt-3 mb-3">
-          <div class="col col-2 position-relative">
-            <img
-              src="./assets/imgs/search/image-18.jpg"
-              class="rounded-circle w-100"
-            />
-            <i
-              class="position-absolute top-50 translate-middle bi bi-heart-fill text-black bg-success rounded-circle px-2 py-1 fs-6"
-            ></i>
-          </div>
-          <div class="col col-10">
-            <h6>Brani che ti piacciono</h6>
-            <p class="small text-secondary">
-              8 brani di Pinguini Tattici Nucleari
-            </p>
-          </div>
-        </div>
-        <h5>Popolari</h5>
-        <div class="container-fluid">
-          <ol class="mt-4">
-            <li>
-              <div class="row align-items-center">
-                <div class="col col-2">
-                  <img
-                    src="./assets/imgs/search/image-26.jpg"
-                    class="w-100 ms-2"
-                  />
+        <div class="row">
+          <!-- sezione aside sinistra -->
+          <div class="col col-3 d-none d-md-flex bg-black">
+            <div class="container my-3">
+              <div class="row flex-column">
+                <div class="col text-start">
+                  <i class="bi bi-three-dots"></i>
                 </div>
-                <div class="col">
-                  <h5 class="m-0">Titolo</h5>
-                  <p class="m-0 small text-secondary">n.ascolti</p>
-                </div>
-                <div class="col d-flex justify-content-end">
-                  <i class="bi bi-three-dots-vertical"></i>
+                <div class="col flex-column text-start mt-3">
+                  <div class="row row-col-2">
+                    <div class="col col-2">
+                      <i class="bi bi-house-door-fill"></i>
+                    </div>
+                    <div class="col col-10"><p>Home</p></div>
+                  </div>
+                  <div class="row">
+                    <div class="col col-2"><i class="bi bi-search"></i></div>
+                    <div class="col col-10"><p>Cerca</p></div>
+                  </div>
+                  <div class="row">
+                    <div class="col col-2">
+                      <i class="bi bi-collection"></i>
+                    </div>
+                    <div class="col col-10"><p>La tua libreria</p></div>
+                  </div>
                 </div>
               </div>
-            </li>
-          </ol>
+              <div class="row flex-column mt-3">
+                <div class="col text-start">
+                  <div class="row">
+                    <div class="col col-2">
+                      <i class="bi bi-plus-square-fill"></i>
+                    </div>
+                    <div class="col col-10"><p>Crea playlist</p></div>
+                  </div>
+                  <div class="row row-cols-2">
+                    <div class="col col-2 text-start">
+                      <img
+                        src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840c489c9523ae48b2c3d96177"
+                        alt="heart"
+                        class="icona-preferiti"
+                      />
+                    </div>
+                    <div class="col col-10"><p>Brani che ti piacciono</p></div>
+                  </div>
+                  <div class="row row-cols-lg-2">
+                    <div class="col col-2 text-start">
+                      <i class="bi bi-bookmark-fill bookmark-icon"></i>
+                    </div>
+                    <div class="col col-10"><p>I tuoi episodi</p></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-cols-1 mt-3">
+                <div class="col">commenti</div>
+                <div class="col">commenti</div>
+                <div class="col">commenti</div>
+              </div>
+            </div>
+          </div>
+          <!-- sezione principale -->
+          <div class="col col-12 col-md-7">
+            <!-- artist header -->
+            <div id="artist_header">
+              <i
+                class="bi bi-arrow-left btn btn-secondary rounded-circle px-1 py-0"
+              ></i>
+              <h1 class="fw-bolder text-white w-75">
+                Pinguini Tattici Nucleari
+              </h1>
+            </div>
+            <p class="small text-secondary">
+              <span id="randomNumber">35952</span> - ascoltatori mensili
+            </p>
+            <div class="container-fluid">
+              <div class="row row-cols-3 px-2"></div>
+              <div class="col d-flex flex-nowrap align-items-center fs-2">
+                <button class="btn btn-outline-secondary">Seguiti</button>
+                <i class="bi bi-three-dots-vertical ms-2"></i>
+              </div>
+              <div
+                class="col d-flex flex-nowrap align-items-center justify-content-end fs-2"
+              >
+                <i class="bi bi-shuffle me-4"></i>
+                <i class="bi bi-play-circle-fill text-success fs-1"></i>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col col-2 position-relative">
+                <img
+                  src="./assets/imgs/search/image-18.jpg"
+                  class="rounded-circle w-100"
+                />
+                <i
+                  class="position-absolute top-50 translate-middle bi bi-heart-fill text-black bg-success rounded-circle px-2 py-1 fs-6"
+                ></i>
+              </div>
+              <div class="col col-10">
+                <h6>Brani che ti piacciono</h6>
+                <p class="small text-secondary">
+                  8 brani di Pinguini Tattici Nucleari
+                </p>
+              </div>
+            </div>
+            <h5>Popolari</h5>
+            <div class="container-fluid">
+              <ol class="mt-4">
+                <li>
+                  <div class="row align-items-center">
+                    <div class="col col-2">
+                      <img
+                        src="./assets/imgs/search/image-26.jpg"
+                        class="w-100 ms-2"
+                      />
+                    </div>
+                    <div class="col">
+                      <h5 class="m-0">Titolo</h5>
+                      <p class="m-0 small text-secondary">n.ascolti</p>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                      <i class="bi bi-three-dots-vertical"></i>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <!-- fine sezione principale -->
+          <!-- ASIDEE DI DESTRA CON ATTIVITà AMICI -->
+          <div class="col col-2 d-none d-md-flex mt-3 bg-black">
+            <aside class="container py-3">
+              <div class="row row-cols-3 flex-nowrap">
+                <div class="col col-8">
+                  <p>Attività amici</p>
+                </div>
+                <div class="col col-2">
+                  <i class="bi bi-person-add text-muted"></i>
+                </div>
+                <div class="col col-2">
+                  <i class="bi bi-plus-lg text-muted"></i>
+                </div>
+              </div>
+              <div class="row row-cols-1 flex-column text-muted">
+                <div class="col">
+                  <div class="row row-cols-3 flex-nowrap">
+                    <div class="col col-2">img</div>
+                    <div class="col col-8">
+                      <div class="row flex-column">
+                        <h6 class="fs-6">Artista</h6>
+                        <p class="fs-6">canzone</p>
+                        <p><i class="bi bi-vinyl pe-2"></i>EP III</p>
+                      </div>
+                    </div>
+                    <div class="col col-2">
+                      <p>4 ore</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row row-cols-3">
+                    <div class="col col-2">img</div>
+                    <div class="col col-8">
+                      <div class="row flex-column">
+                        <h6 class="fs-6">Artista</h6>
+                        <p class="fs-6">canzone</p>
+                        <p>
+                          <i class="bi bi-music-note-beamed pe-2"></i>EP III
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col col-2">
+                      <p>4 ore</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-
       <!-- barra player -->
-      <div class="music-bar container">
+      <div class="music-bar container-fluid me-2">
         <div class="row row-cols-2 align-items-center">
           <div class="track-info col col-7 px-1">
             <img
