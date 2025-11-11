@@ -59,3 +59,30 @@ main {
   border-radius: 5px;
   width: 48%;
 }
+/* barra musica */
+
+.music-bar {
+  position: sticky;
+  bottom: 72px;
+  background-color: #181818;
+  color: white;
+  height: 55px;
+}
+
+.music-bar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 55%;
+}
+
+.track-info {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.track-controls i {
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
