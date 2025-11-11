@@ -56,8 +56,20 @@ main {
 }
 .btn-rotated {
   height: 75px;
+  width: 100%;
   border-radius: 5px;
-  width: 48%;
+}
+
+.icona-preferiti {
+  width: 18px;
+  border-radius: 1px;
+}
+
+.bookmark-icon {
+    background-color: #004537;
+    border-radius: 1px;
+    font-size: 8px;
+    padding: 6px !important;
 }
 /* barra musica */
 
@@ -85,4 +97,18 @@ main {
   font-size: 1.4rem;
   cursor: pointer;
   margin-left: 1rem;
+}
+
+/* artist page */
+
+#artist_header{
+  background-image: url(/assets/imgs/search/image-22.jpg);
+  background-size: cover;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+#artist_header h1{
+  padding-top: 32%;
+  padding-bottom: 3%;
 }
