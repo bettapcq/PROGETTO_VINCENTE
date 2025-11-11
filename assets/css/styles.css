@@ -46,3 +46,16 @@ footer .nav-link h6 {
 main {
   margin-bottom: 4.5rem;
 }
+.img-rotated {
+  width: 53px;
+  position: absolute;
+  bottom: 4px;
+  right: -7px;
+  transform: rotate(23deg);
+  border-radius: 15%;
+}
+.btn-rotated {
+  height: 75px;
+  border-radius: 5px;
+  width: 48%;
+}
