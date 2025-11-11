@@ -18,7 +18,7 @@
   </head>
 </html>
 <body data-bs-theme="dark">
-  <main class="container mx-md-1 text-center">
+  <main class="container-fluid mx-md-1 text-center">
     <div class="container-fluid">
       <div class="row">
         <!-- sezione aside sinistra -->
@@ -30,46 +30,50 @@
               </div>
               <div class="col flex-column text-start mt-3">
                 <div class="row row-col-2">
-                  <div class="col"><i class="bi bi-house-door-fill"></i></div>
-                  <div class="col">Home</div>
+                  <div class="col col-2">
+                    <i class="bi bi-house-door-fill"></i>
+                  </div>
+                  <div class="col col-10"><p>Home</p></div>
                 </div>
                 <div class="row">
-                  <div class="col"><i class="bi bi-search"></i></div>
-                  <div class="col">Cerca</div>
+                  <div class="col col-2"><i class="bi bi-search"></i></div>
+                  <div class="col col-10"><p>Cerca</p></div>
                 </div>
                 <div class="row">
-                  <div class="col"><i class="bi bi-collection"></i></div>
-                  <div class="col">La tua libreria</div>
+                  <div class="col col-2">
+                    <i class="bi bi-collection"></i>
+                  </div>
+                  <div class="col col-10"><p>La tua libreria</p></div>
                 </div>
               </div>
             </div>
             <div class="row flex-column mt-3">
               <div class="col text-start">
                 <div class="row">
-                  <div class="col">
+                  <div class="col col-2">
                     <i class="bi bi-plus-square-fill"></i>
                   </div>
-                  <div class="col">Crea playlist</div>
+                  <div class="col col-10"><p>Crea playlist</p></div>
                 </div>
-                <div class="row">
-                  <div class="col text-start">
+                <div class="row row-cols-2">
+                  <div class="col col-2 text-start">
                     <img
                       src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840c489c9523ae48b2c3d96177"
                       alt="heart"
                       class="icona-preferiti"
                     />
                   </div>
-                  <div class="col">Brani che ti piacciono</div>
+                  <div class="col col-10"><p>Brani che ti piacciono</p></div>
                 </div>
-                <div class="row">
-                  <div class="col text-start">
+                <div class="row row-cols-lg-2">
+                  <div class="col col-2 text-start">
                     <i class="bi bi-bookmark-fill bookmark-icon"></i>
                   </div>
-                  <div class="col">I tuoi episodi</div>
+                  <div class="col col-10"><p>I tuoi episodi</p></div>
                 </div>
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row row-cols-1 mt-3">
               <div class="col">commenti</div>
               <div class="col">commenti</div>
               <div class="col">commenti</div>
@@ -231,7 +235,7 @@
         </div>
         <!-- fine sezione principale -->
         <!-- ASIDEE DI DESTRA CON ATTIVITà AMICI -->
-        <div class="col col-2 d-none d-md-flex mt-3 bg-black">
+        <div class="col col-2 d-none d-md-flex pt-3 bg-black">
           <aside class="container py-3">
             <div class="row row-cols-3 flex-nowrap">
               <div class="col col-8">
