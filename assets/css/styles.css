@@ -66,10 +66,11 @@ main {
 }
 
 .bookmark-icon {
-    background-color: #004537;
-    border-radius: 1px;
-    font-size: 8px;
-    padding: 6px !important;
+  background-color: #004537;
+  color: rgb(113, 188, 0);
+  border-radius: 1px;
+  font-size: 6px;
+  padding: 6px !important;
 }
 /* barra musica */
 
@@ -101,14 +102,22 @@ main {
 
 /* artist page */
 
-#artist_header{
+#artist_header {
   background-image: url(/assets/imgs/search/image-22.jpg);
   background-size: cover;
   padding-top: 10%;
   padding-left: 5%;
 }
 
-#artist_header h1{
+#artist_header h1 {
   padding-top: 32%;
   padding-bottom: 3%;
+}
+
+/* aside font size */
+
+.aside-container-fs p,
+.aside-container-fs h6 {
+  font-size: 0.7em;
+  margin: 0.2em 0;
 }
