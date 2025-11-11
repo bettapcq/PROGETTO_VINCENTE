@@ -66,54 +66,65 @@
         </div>
       </nav>
     </header>
-    <main class="mt-3 overflow-scroll overflow-x-hidden">
+    <main class="mt-3  mx-md-1 overflow-scroll overflow-x-hidden">
       <section class="container mt-5">
         <div class="row">
-          <!-- SEZIONE PRINICIPALE -->
-
-          <div class="col col-3">
-            <!-- sezione aside sinistra -->
-            <div class="container my-3">
-              <div class="row flex-column">
-                <div class="col">puntini verticali</div>
-                <div class="col">
-                  <div class="row">
-                    <div class="col">icona casa</div>
-                    <div class="col">scritta home</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">icona cerca</div>
-                    <div class="col">scritta cerca</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">icona libreria</div>
-                    <div class="col">scritta libreria</div>
-                  </div>
-                </div>
+          <!-- sezione aside sinistra -->
+          <div class="col col-3 d-none d-md-flex bg-black">
+              <div class="container my-3">
+            <div class="row flex-column">
+              <div class="col text-start">
+                <i class="bi bi-three-dots"></i>
               </div>
-              <div class="row flex-column mt-3">
-                <div class="col">
-                  <div class="row">
-                    <div class="col">img</div>
-                    <div class="col">crea playlist</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">img</div>
-                    <div class="col">Brani che ti piacciono</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">img</div>
-                    <div class="col">I tuoi episodi</div>
-                  </div>
+              <div class="col flex-column text-start mt-3">
+                <div class="row row-col-2">
+                  <div class="col"><i class="bi bi-house-door-fill"></i></div>
+                  <div class="col">Home</div>
                 </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col">commenti</div>
-                <div class="col">commenti</div>
-                <div class="col">commenti</div>
+                <div class="row">
+                  <div class="col"><i class="bi bi-search"></i></div>
+                  <div class="col">Cerca</div>
+                </div>
+                <div class="row">
+                  <div class="col"><i class="bi bi-collection"></i></div>
+                  <div class="col">La tua libreria</div>
+                </div>
               </div>
             </div>
+            <div class="row flex-column mt-3">
+              <div class="col text-start">
+                <div class="row">
+                  <div class="col">
+                    <i class="bi bi-plus-square-fill"></i>
+                  </div>
+                  <div class="col">Crea playlist</div>
+                </div>
+                <div class="row">
+                  <div class="col text-start">
+                    <img
+                      src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840c489c9523ae48b2c3d96177"
+                      alt="heart"
+                      class="icona-preferiti"
+                    />
+                  </div>
+                  <div class="col">Brani che ti piacciono</div>
+                </div>
+                <div class="row">
+                  <div class="col text-start">
+                    <i class="bi bi-bookmark-fill bookmark-icon"></i>
+                  </div>
+                  <div class="col">I tuoi episodi</div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">commenti</div>
+              <div class="col">commenti</div>
+              <div class="col">commenti</div>
+            </div>
           </div>
+          </div>
+          <!-- SEZIONE PRINICIPALE -->
           <div class="col col-12 col-md-7">
             <!-- DUE TITOLI -->
             <div class="col">
@@ -122,7 +133,6 @@
                 <div class="col col-5"><a>Podcast e show</a></div>
               </div>
             </div>
-
             <!-- small cards -->
             <div class="col">
               <div class="row row-cols-2 p-3 g-2">
@@ -204,6 +214,7 @@
                 </div>
               </div>
             </div>
+            <!-- cards grandi -->
             <div class="col">
               <section class="row">
                 <div class="card mb-3 border-0">
@@ -243,8 +254,9 @@
               </section>
             </div>
           </div>
+          <!-- FINE SEZIONE PRINCIPALE -->
+          <!-- ASIDEE DI DESTRA CON ATTIVITà AMICI -->
           <div class="col col-2 d-none d-md-flex mt-3 bg-black">
-            <!-- ASIDEE DI DESTRA CON ATTIVITà AMICI -->
             <aside class="container py-3">
               <div class="row row-cols-3 flex-nowrap">
                 <div class="col col-8">
@@ -294,44 +306,8 @@
             </aside>
           </div>
         </div>
-        <!-- cards che scrollano -->
-        <!-- <section class="row">
-          <div class="card mb-3 border-0">
-            <div class="row g-0">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-1.jpg"
-                  class="img-fluid rounded-start"
-                  alt="preview"
-                  style="min-width: 50px; min-height: 50px"
-                />
-              </div>
-              <div class="col">
-                <div class="card-body">
-                  <h5 class="card-title">playlist name</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3 border-0">
-            <div class="row g-0">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-1.jpg"
-                  class="img-fluid rounded-start"
-                  alt="preview"
-                  style="min-width: 50px; min-height: 50px"
-                />
-              </div>
-              <div class="col">
-                <div class="card-body">
-                  <h5 class="card-title">playlist name</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> -->
       </section>
+
       <section>
         <!-- fixed player -->
       </section>
