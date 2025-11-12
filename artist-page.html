@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body data-bs-theme="dark">
-    <main class="container-fluid mt-3 mx-md-0 px-md-0">
-      <section class="container-fluid mt-5">
+    <main class="container-fluid mx-md-0 px-md-0">
+      <div class="container-fluid">
         <div class="row">
           <!-- sezione aside sinistra -->
           <div class="col col-3 d-none d-md-flex bg-black">
@@ -68,7 +68,9 @@
                     <div class="col col-2 text-start">
                       <i class="bi bi-bookmark-fill bookmark-icon"></i>
                     </div>
-                    <div class="col col-10"><p>I tuoi episodi</p></div>
+                    <div class="col col-10 text-start">
+                      <p>I tuoi episodi</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -79,100 +81,76 @@
               </div>
             </div>
           </div>
-          <!-- SEZIONE PRINCIPALE -->
+          <!-- sezione principale -->
           <div class="col col-12 col-md-7">
-            <div class="card border-0">
-              <div class="container-fluid">
-                <div
-                  class="row row-cols-2 flex-nowrap align-top justify-content-center"
-                >
-                  <div class="col col-2">
-                    <a href=""
-                      ><i class="bi bi-arrow-left text-white ps-2"></i
-                    ></a>
-                  </div>
-                  <div class="col col-10 p-0">
-                    <img
-                      src="./assets/imgs/main/image-10.jpg"
-                      width="500px"
-                      class="w-75 card-img-top px-4 pb-4"
-                      alt="album cover"
-                    />
-                  </div>
-                </div>
+            <!-- artist header -->
+            <div id="artist_header">
+              <i
+                class="bi bi-arrow-left btn btn-secondary rounded-circle px-1 py-0"
+              ></i>
+              <h1 class="fw-bolder text-white w-75">
+                Pinguini Tattici Nucleari
+              </h1>
+            </div>
+            <p class="small text-secondary">
+              <span id="randomNumber">35952</span> - ascoltatori mensili
+            </p>
+            <div class="container-fluid">
+              <div class="row row-cols-3 px-2"></div>
+              <div class="col d-flex flex-nowrap align-items-center fs-2">
+                <button class="btn btn-outline-secondary">Seguiti</button>
+                <i class="bi bi-three-dots-vertical ms-2"></i>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">Album title</h5>
-                <div class="container-fluid">
-                  <div
-                    class="row row-cols-2 justify-content-start align-items-center p-0"
-                  >
-                    <img
-                      src="./assets/imgs/main/image-9.jpg"
-                      class="rounded-circle px-0"
-                    />
-                    <a href="#" class="btn text-start ps-2">Artist</a>
-                  </div>
-                </div>
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col text-start">
-                      <p>Album • <span id="albumYear">2017</span></p>
+              <div
+                class="col d-flex flex-nowrap align-items-center justify-content-end fs-2"
+              >
+                <i class="bi bi-shuffle me-4"></i>
+                <i class="bi bi-play-circle-fill text-success fs-1"></i>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col col-2 position-relative">
+                <img
+                  src="./assets/imgs/search/image-18.jpg"
+                  class="rounded-circle w-100"
+                />
+                <i
+                  class="position-absolute top-50 translate-middle bi bi-heart-fill text-black bg-success rounded-circle px-2 py-1 fs-6"
+                ></i>
+              </div>
+              <div class="col col-10">
+                <h6>Brani che ti piacciono</h6>
+                <p class="small text-secondary">
+                  8 brani di Pinguini Tattici Nucleari
+                </p>
+              </div>
+            </div>
+            <h5>Popolari</h5>
+            <div class="container-fluid">
+              <ol class="mt-4">
+                <li>
+                  <div class="row align-items-center">
+                    <div class="col col-2">
+                      <img
+                        src="./assets/imgs/search/image-26.jpg"
+                        class="w-100 ms-2"
+                      />
+                    </div>
+                    <div class="col">
+                      <h5 class="m-0">Titolo</h5>
+                      <p class="m-0 small text-secondary">n.ascolti</p>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                      <i class="bi bi-three-dots-vertical"></i>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="container-fluid">
-              <div class="row row-cols-2 px-2">
-                <div class="col d-flex flex-nowrap align-items-center fs-2">
-                  <i class="bi bi-heart"></i>
-                  <i class="bi bi-arrow-down-circle mx-4"></i>
-                  <i class="bi bi-three-dots-vertical"></i>
-                </div>
-                <div
-                  class="col d-flex flex-nowrap align-items-center justify-content-end fs-2"
-                >
-                  <i class="bi bi-shuffle me-4"></i>
-                  <i class="bi bi-play-circle-fill text-success fs-1"></i>
-                </div>
-              </div>
-            </div>
-
-            <div class="container-fluid">
-              <div class="row py-4 align-items-center">
-                <div class="col text-start">
-                  <h4 class="m-0">titolo canzone</h4>
-                  <p class="m-0 small text-secondary">Artista</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
-                </div>
-              </div>
-              <div class="row py-4 align-items-center">
-                <div class="col text-start">
-                  <h4 class="m-0">titolo canzone</h4>
-                  <p class="m-0 small text-secondary">Artista</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
-                </div>
-              </div>
-              <div class="row py-4 align-items-center">
-                <div class="col text-start">
-                  <h4 class="m-0">titolo canzone</h4>
-                  <p class="m-0 small text-secondary">Artista</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
           </div>
-          <!-- FINE SEZIONE PRINCIPALE -->
+          <!-- fine sezione principale -->
           <!-- ASIDEE DI DESTRA CON ATTIVITà AMICI -->
-          <div class="col col-2 d-none d-md-flex bg-black">
+          <div class="col col-2 d-none d-md-flex mt-3 bg-black">
             <aside class="container py-3">
               <div class="row row-cols-3 flex-nowrap">
                 <div class="col col-8">
@@ -222,10 +200,9 @@
             </aside>
           </div>
         </div>
-      </section>
-
+      </div>
       <!-- barra player -->
-      <div class="music-bar container">
+      <div class="music-bar container-fluid me-2">
         <div class="row row-cols-2 align-items-center">
           <div class="track-info col col-7 px-1">
             <img
