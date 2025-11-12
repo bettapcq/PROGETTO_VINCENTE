@@ -18,9 +18,7 @@ searchButton.addEventListener(
 
       .then((artistDetails) => {
         console.log(artistDetails)
-        let artistID = artistDetails.data[0].artist.id
-        console.log(artistID)
-        
+        let artistID = artistDetails.data[0].artist.id        
         
         // DA FARE
         // - local storage
