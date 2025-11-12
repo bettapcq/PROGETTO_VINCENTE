@@ -1,12 +1,12 @@
 const searchButton = document.getElementById("button-addon1")
 const searchField = document.getElementById("searchField")
 const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`
-artistUrl = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
+const artistUrl = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
 
 searchButton.addEventListener(
   "click",
-  (search = () => {
-    console.log(searchURL + `${searchField.value}`)
+  (searchArtist = () => {
+
     fetch(searchURL + `${searchField.value}`)
       .then((res) => {
         if (res.ok) {
@@ -23,14 +23,13 @@ searchButton.addEventListener(
         
         
         // DA FARE
-        // - local storage dei results
-        const allTheParameters = new URLSearchParams(location.search)
-        console.log(allTheParameters)
+        // - local storage
+        const artistDetailsURL = artistUrl + `${artistID}`
 
-        const id = allTheParameters.get(artistURL + artistID)
-        console.log(id)
+        localStorage.setItem("artistURL", artistDetailsURL)
+
         // - redirect on artists page con i local storage
-        // window.open("artist-page.html" + id, '_blank')
+        window.open("artist-page.html", '_blank')
 
       })
 
