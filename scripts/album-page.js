@@ -37,19 +37,25 @@ const loadArtist = function () {
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
         </div>`
-
+          
         //   funzione small play buttons
         const play_btn = document.getElementsByClassName("play_btn")
         const playerText = document.getElementById("playerText")
+        let audio = new Audio(albumDetails.tracks.data[i].preview)
         for (let i = 0; i < play_btn.length; i++) {
-          play_btn[i].addEventListener(
-            "click",
-            (play = () => {
-              playerText.innerHTML = `<h6>${albumDetails.tracks.data[i].title}</h6>
+          play_btn[i].addEventListener("click", togglePlay = () => {
+           play_btn[i].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+              playerText.innerHTML = `
+              <h6>${albumDetails.tracks.data[i].title}</h6>
               <p>di ${albumDetails.tracks.data[i].name}</p>`
-            })
+              if (audio.paused) { audio.play() }
+              else {
+                  audio.pause();
+                  play_btn[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+               }
+            }
           )
-        }
+          }
       }
     })
 
