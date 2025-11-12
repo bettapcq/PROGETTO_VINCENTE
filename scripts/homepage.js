@@ -1,39 +1,39 @@
 // const allTheParameters = new URLSearchParams(location.search);
 // const id = allTheParameters.get(id);
 
-const albumUrl = 'https://striveschool-api.herokuapp.com/api/deezer/album/';
+const albumUrl = "https://striveschool-api.herokuapp.com/api/deezer/album/"
 
-const deepPurpleID = 5953987;
+const deepPurpleID = 5953987
 
-const artistUrl = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
-const eminemId = 13;
-const eminemAlbumId = 119606;
+const artistUrl = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
+const eminemId = 13
+const eminemAlbumId = 119606
 
 const albumURL = albumUrl + eminemAlbumId
 
 localStorage.setItem("albumURL", albumURL)
 
-const songSection = document.getElementById('songCard');
+const songSection = document.getElementById("songCard")
 
 const getSongDetails = () => {
   fetch(albumUrl + eminemAlbumId)
     .then((res) => {
       if (res.ok) {
-        return res.json();
+        return res.json()
       } else {
-        throw new Error('Ops! Errore dalla risposta:', res.status);
+        throw new Error("Ops! Errore dalla risposta:", res.status)
       }
     })
     .then((songDetails) => {
-      console.log(songDetails);
-      const albumTrack = songDetails.tracks.data[5];
-      console.log(albumTrack);
+      console.log(songDetails)
+      const albumTrack = songDetails.tracks.data[5]
+      console.log(albumTrack)
 
-      const artistID = albumTrack.artist.id;
-      const artistDetailsURL = artistUrl + artistID;
-    localStorage.setItem('artistURL', artistDetailsURL);
-    console.log(artistDetailsURL)
-      const songDiv = document.getElementById('songCard');
+      const artistID = albumTrack.artist.id
+      const artistDetailsURL = artistUrl + artistID
+      localStorage.setItem("artistURL", artistDetailsURL)
+      console.log(artistDetailsURL)
+      const songDiv = document.getElementById("songCard")
       songDiv.innerHTML = `
   <div class="col">
   <div class="container-fluid">
@@ -92,23 +92,23 @@ const getSongDetails = () => {
     </div>
   </div>
 </div>
-      `;
+      `
     })
     .catch((err) => {
-      alert('Ops! Errore dal server:' + err);
-    });
-};
+      alert("Ops! Errore dal server:" + err)
+    })
+}
 
-getSongDetails();
+getSongDetails()
 
 const albumsArray = [
-  '1127912',
-  '851331162',
-  '324179237',
-  '8446705',
-  '104188',
-  '72704062',
-];
+  "1127912",
+  "851331162",
+  "324179237",
+  "8446705",
+  "104188",
+  "72704062",
+]
 
 // const loadAlbums = () => {
 //   albumsArray.forEach((albumID) => {

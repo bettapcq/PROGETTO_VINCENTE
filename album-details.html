@@ -97,12 +97,13 @@
                       width="500px"
                       class="w-75 card-img-top px-4 pb-4"
                       alt="album cover"
+                      id="album_cover"
                     />
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Album title</h5>
+                <h5 class="card-title" id="albumTitle">Album title</h5>
                 <div class="container-fluid">
                   <div
                     class="row row-cols-2 justify-content-start align-items-center p-0"
@@ -110,8 +111,9 @@
                     <img
                       src="./assets/imgs/main/image-9.jpg"
                       class="rounded-circle px-0"
+                      id="smallArtistImg"
                     />
-                    <a href="#" class="btn text-start ps-2">Artist</a>
+                    <a href="#" class="btn text-start ps-2" id="artistName">Artist</a>
                   </div>
                 </div>
                 <div class="container-fluid">
@@ -142,30 +144,7 @@
 
             <div class="container-fluid">
               <div class="row py-4 align-items-center">
-                <div class="col text-start">
-                  <h4 class="m-0">titolo canzone</h4>
-                  <p class="m-0 small text-secondary">Artista</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
-                </div>
-              </div>
-              <div class="row py-4 align-items-center">
-                <div class="col text-start">
-                  <h4 class="m-0">titolo canzone</h4>
-                  <p class="m-0 small text-secondary">Artista</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
-                </div>
-              </div>
-              <div class="row py-4 align-items-center">
-                <div class="col text-start">
-                  <h4 class="m-0">titolo canzone</h4>
-                  <p class="m-0 small text-secondary">Artista</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
+                <div class="col text-start" id="songsList">
                 </div>
               </div>
             </div>
@@ -263,6 +242,7 @@
             <img
               class="float-start mx-2 my-2"
               src="./assets/imgs/search/image-11.jpg"
+              id="albumCoverPlayer"
             /><!--immagine artista -->
             <div class="text-start my1">
               <strong>Supernatural Parody</strong>
