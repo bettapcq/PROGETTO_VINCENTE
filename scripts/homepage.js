@@ -9,6 +9,10 @@ const artistUrl = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
 const eminemId = 13;
 const eminemAlbumId = 119606;
 
+const albumURL = albumUrl + eminemAlbumId
+
+localStorage.setItem("albumURL", albumURL)
+
 const songSection = document.getElementById('songCard');
 
 const getSongDetails = () => {
