@@ -20,10 +20,15 @@ const getSongDetails = () => {
         throw new Error('Ops! Errore dalla risposta:', res.status);
       }
     })
-    .then((albumDetails) => {
-      console.log(albumDetails);
-      const albumTrack = albumDetails.tracks.data[5];
+    .then((songDetails) => {
+      console.log(songDetails);
+      const albumTrack = songDetails.tracks.data[5];
       console.log(albumTrack);
+
+      const artistID = albumTrack.artist.id;
+      const artistDetailsURL = artistUrl + artistID;
+    localStorage.setItem('artistURL', artistDetailsURL);
+    console.log(artistDetailsURL)
       const songDiv = document.getElementById('songCard');
       songDiv.innerHTML = `
   <div class="col">
@@ -47,7 +52,7 @@ const getSongDetails = () => {
                 role="button"
                 aria-expanded="false"
                 class="text-decoration-none text-light"
-                >${albumDetails.title}</a
+                >${songDetails.title}</a
               >
               <h1 id="songTitle" class="card-title py-0">
                 ${albumTrack.title}
@@ -92,28 +97,37 @@ const getSongDetails = () => {
 
 getSongDetails();
 
+const albumsArray = [
+  '1127912',
+  '851331162',
+  '324179237',
+  '8446705',
+  '104188',
+  '72704062',
+];
 
-
-
-// const getAlbumsDetails = () => {
-//   fetch(albumUrl + eminemAlbumId)
-//     .then((res) => {
-//       if (res.ok) {
-//         return res.json();
-//       } else {
-//         throw new Error('Ops! Errore dalla risposta:', res.status);
-//       }
-//     })
-//     .then((albumDetails) => {
-//       console.log(albumDetails);
-//       const albumTrack = albumDetails.tracks.data[5];
-//       console.log(albumTrack);
-//       const songDiv = document.getElementById('songCard');
-//       songDiv.innerHTML = `
-// //  inserire card della paina album
-//       `;
-//     })
-//     .catch((err) => {
-//       alert('Ops! Errore dal server:' + err);
-//     });
+// const loadAlbums = () => {
+//   albumsArray.forEach((albumID) => {
+//     fetch(albumUrl + albumID)
+//       .then((res) => {
+//         if (res.ok) {
+//           return res.json();
+//         } else {
+//           throw new Error('Ops! Errore dalla risposta:', res.status);
+//         }
+//       })
+//       .then((albumDetails) => {
+//         console.log(albumDetails);
+//         const smallCards = document.querySelectorAll('.small-cards card');
+//         const imagesToChange = document.querySelectorAll('.card img');
+//         const titleToChange = document.querySelectorAll('.card card-title');
+//         for (let i = 0; i < smallCards.length; i++) {
+//           imagesToChange[i].src = albumDetails.cover - small;
+//           titleToChange[i].innerText = albumDetails.title;
+//         }
+//       })
+//       .catch((err) => {
+//         alert('Ops! Errore dal server:' + err);
+//       });
+//   });
 // };
