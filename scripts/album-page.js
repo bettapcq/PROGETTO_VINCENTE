@@ -28,14 +28,29 @@ const loadArtist = function () {
       albumTitle.innerText = albumDetails.title
       albumYear.innerText = parseInt(albumDetails.release_date)
 
-      albumDetails.tracks.data.forEach((track) => {
-        songsList.innerHTML += `<h4 class="m-0">${track.title}</h4>
-                  <p class="m-0 small text-secondary">${track.artist.name}</p>
-                </div>
-                <div class="col text-end">
-                  <i class="bi bi-three-dots-vertical fs-2"></i>
-                </div>  `
-      })
+      for (let i = 0; i < albumDetails.tracks.data.length; i++) {
+        songsList.innerHTML += `
+        <div class="col">
+        <h5 class="m-0">${albumDetails.tracks.data[i].title}</h5>
+        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].name}</p>
+        </div>
+        <div class="col text-end">
+        <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
+        </div>`
+
+        //   funzione small play buttons
+        const play_btn = document.getElementsByClassName("play_btn")
+        const playerText = document.getElementById("playerText")
+        for (let i = 0; i < play_btn.length; i++) {
+          play_btn[i].addEventListener(
+            "click",
+            (play = () => {
+              playerText.innerHTML = `<h6>${albumDetails.tracks.data[i].title}</h6>
+              <p>di ${albumDetails.tracks.data[i].name}</p>`
+            })
+          )
+        }
+      }
     })
 
     .catch((err) => {
