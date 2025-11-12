@@ -1,6 +1,6 @@
-let artistURL = localStorage.getItem("artistURL")
-const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`
-console.log(artistURL)
+let artistURL = localStorage.getItem('artistURL');
+const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
+console.log(artistURL);
 
 // riempire sezione header dell'artista:
 
@@ -8,48 +8,48 @@ const loadArtist = function () {
   fetch(artistURL)
     .then((res) => {
       if (res.ok) {
-        return res.json()
+        return res.json();
       } else {
-        throw new Error(res.status)
+        throw new Error(res.status);
       }
     })
 
     .then((artistDetails) => {
-      console.log(artistDetails)
-      const artistFullName = artistDetails.name
-      const artistImg = artistDetails.picture_xl
-      const artistFans = artistDetails.nb_fan
-      const artistNameToChange = document.getElementById("artist-name")
-      const artistImgToChange = document.getElementById("artist-img")
-      const artistHeader = document.getElementById("artist_header")
-      const fansNumber = document.getElementById("fansNumber")
+      console.log(artistDetails);
+      const artistFullName = artistDetails.name;
+      const artistImg = artistDetails.picture_xl;
+      const artistFans = artistDetails.nb_fan;
+      const artistNameToChange = document.getElementById('artist-name');
+      const artistImgToChange = document.getElementById('artist-img');
+      const artistHeader = document.getElementById('artist_header');
+      const fansNumber = document.getElementById('fansNumber');
 
-      artistNameToChange.innerText = artistFullName
-      artistImgToChange.src = artistImg
-      artistHeader.style.backgroundImage = `url(${artistImg})`
-      fansNumber.innerText = artistFans
-      let artistName = artistFullName.trim()
-      console.log(artistName)
+      artistNameToChange.innerText = artistFullName;
+      artistImgToChange.src = artistImg;
+      artistHeader.style.backgroundImage = `url(${artistImg})`;
+      fansNumber.innerText = artistFans;
+      let artistName = artistFullName.trim();
+      console.log(artistName);
 
       // riempire sezione albums popolari:
-      let searchArtistURL = searchURL + artistName
-      console.log(searchArtistURL)
+      let searchArtistURL = searchURL + artistName;
+      console.log(searchArtistURL);
 
       fetch(searchArtistURL)
         .then((res) => {
           if (res.ok) {
-            return res.json()
+            return res.json();
           } else {
-            throw new Error("Ops! Errore dalla risposta:", res.status)
+            throw new Error('Ops! Errore dalla risposta:', res.status);
           }
         })
         .then((songsArray) => {
-          console.log("songsArray", songsArray)
-          console.log("songAlbum", songsArray.data[0].album)
+          console.log('songsArray', songsArray);
+          console.log('songAlbum', songsArray.data[0].album);
 
           for (let i = 0; i < 5; i++) {
-            const popularAlbums = document.getElementById("popular-albums")
-            
+            const popularAlbums = document.getElementById('popular-albums');
+
             popularAlbums.innerHTML += `<li>
           <div class="row align-items-center">
           <div class="col col-2">
@@ -67,48 +67,58 @@ const loadArtist = function () {
           </div>
           </div>
           </li>
-          `
+          `;
           }
         })
 
         .catch((err) => {
-          console.log("error:", err)
-        })
+          console.log('error:', err);
+        });
     })
 
     .catch((err) => {
-      console.log("error:", err)
-    })
+      console.log('error:', err);
+    });
 
   // window.location.assign("artist-page.html")
   // - inserire gli ID nella artists page
   // .catch((err) => {
   //   console.log('error:', err);
   // });
-}
+};
 
-loadArtist()
+loadArtist();
 
-// // riempire sezione albums popolari:
+// funzione riempi amici:
 
-// const artistName = document.getElementById('artist-name').innerText;
-// console.log(artistName);
-// const searchArtistURL = searchURL + artistName;
-// console.log(searchArtistURL)
+const artistArray = ['acdc', 'deeppurple', 'tupac', '50cent'];
 
-// const loadPopularAlbums = () => {
-//   fetch(searchArtistURL)
-//     .then((res) => {
-//       if (res.ok) {
-//         return res.json();
-//       } else {
-//         throw new Error('Ops! Errore dalla risposta:', res.status);
-//       }
-//     })
-//     .then((albumDetails) => {
-//       console.log(albumDetails);
-//     });
-//   //   .catch((err) => {
-//   //             console.log("error:", err);
-//   //       });
-// };
+const fillFriendsAside = function () {
+  const friends = document.querySelectorAll('.friend'); // seleziona i div "amico"
+
+  friends.forEach((friend, index) => {
+    const artist = artistArray[index];
+
+    fetch(searchURL + artist)
+      .then((res) => {
+        if (res.ok) return res.json();
+        else throw new Error(res.status);
+      })
+      .then((data) => {
+        if (data.data.length > 0) {
+          const firstSong = data.data[0];
+          const songDiv = friend.querySelector('.song-name');
+          songDiv.innerText = firstSong.title;
+          const artistID = firstSong.artist.id;
+
+          songDiv.addEventListener('click', () => {
+            const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
+            localStorage.setItem('artistURL', artistURL);
+          });
+        }
+      })
+      .catch((err) => console.log('Errore:', err));
+  });
+};
+
+fillFriendsAside();
