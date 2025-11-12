@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body data-bs-theme="dark">
-    <header>
+    <header class="d-md-none">
       <nav class="navbar bg-dark justify-content-between fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Buongiornissimo</a>
@@ -129,7 +129,12 @@
             </div>
           </div>
           <!-- SEZIONE PRINICIPALE -->
+
           <div class="col col-12 col-md-7">
+            <!-- card desktop della canzone -->
+            <section id="songCard" class="d-none d-md-flex">
+              <!-- card canzone creata con js -->
+            </section>
             <!-- DUE TITOLI -->
             <div class="col">
               <div class="row row-cols-2 p-3 text-white mt-3">
@@ -138,112 +143,109 @@
               </div>
             </div>
             <!-- small cards -->
-
             <div class="row row-cols-2 p-3 g-0">
-              
-                <div class="card mb-3 border-0">
-                  <div class="row g-0">
-                    <div class="col col-4">
-                      <img
-                        src="./assets/imgs/main/image-1.jpg"
-                        class="img-fluid rounded-start-1"
-                        alt="preview"
-                        style="min-width: 40px; min-height: 40px"
-                      />
-                    </div>
-                    <div class="col col-8">
-                      <div class="card-body">
-                        <h6 class="card-title">playlist name</h6>
-                      </div>
+              <div class="card mb-3 border-0">
+                <div class="row g-0">
+                  <div class="col col-4">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      class="img-fluid rounded-start-1"
+                      alt="preview"
+                      style="min-width: 40px; min-height: 40px"
+                    />
+                  </div>
+                  <div class="col col-8">
+                    <div class="card-body">
+                      <h6 class="card-title">playlist name</h6>
                     </div>
                   </div>
                 </div>
-                <div class="card mb-3 border-0">
-                  <div class="row g-0">
-                    <div class="col col-4">
-                      <img
-                        src="./assets/imgs/main/image-1.jpg"
-                        class="img-fluid rounded-start-1"
-                        alt="preview"
-                        style="min-width: 40px; min-height: 40px"
-                      />
-                    </div>
-                    <div class="col col-8">
-                      <div class="card-body">
-                        <h6 class="card-title">playlist name</h6>
-                      </div>
+              </div>
+              <div class="card mb-3 border-0">
+                <div class="row g-0">
+                  <div class="col col-4">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      class="img-fluid rounded-start-1"
+                      alt="preview"
+                      style="min-width: 40px; min-height: 40px"
+                    />
+                  </div>
+                  <div class="col col-8">
+                    <div class="card-body">
+                      <h6 class="card-title">playlist name</h6>
                     </div>
                   </div>
                 </div>
-                <div class="card mb-3 border-0">
-                  <div class="row g-0">
-                    <div class="col col-4">
-                      <img
-                        src="./assets/imgs/main/image-1.jpg"
-                        class="img-fluid rounded-start-1"
-                        alt="preview"
-                        style="min-width: 40px; min-height: 40px"
-                      />
-                    </div>
-                    <div class="col col-8">
-                      <div class="card-body">
-                        <h6 class="card-title">playlist name</h6>
-                      </div>
+              </div>
+              <div class="card mb-3 border-0">
+                <div class="row g-0">
+                  <div class="col col-4">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      class="img-fluid rounded-start-1"
+                      alt="preview"
+                      style="min-width: 40px; min-height: 40px"
+                    />
+                  </div>
+                  <div class="col col-8">
+                    <div class="card-body">
+                      <h6 class="card-title">playlist name</h6>
                     </div>
                   </div>
                 </div>
-                <div class="card mb-3 border-0">
-                  <div class="row g-0">
-                    <div class="col col-4">
-                      <img
-                        src="./assets/imgs/main/image-1.jpg"
-                        class="img-fluid rounded-start-1"
-                        alt="preview"
-                        style="min-width: 40px; min-height: 40px"
-                      />
-                    </div>
-                    <div class="col col-8">
-                      <div class="card-body">
-                        <h6 class="card-title">playlist name</h6>
-                      </div>
+              </div>
+              <div class="card mb-3 border-0">
+                <div class="row g-0">
+                  <div class="col col-4">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      class="img-fluid rounded-start-1"
+                      alt="preview"
+                      style="min-width: 40px; min-height: 40px"
+                    />
+                  </div>
+                  <div class="col col-8">
+                    <div class="card-body">
+                      <h6 class="card-title">playlist name</h6>
                     </div>
                   </div>
                 </div>
-                <div class="card mb-3 border-0">
-                  <div class="row g-0">
-                    <div class="col col-4">
-                      <img
-                        src="./assets/imgs/main/image-1.jpg"
-                        class="img-fluid rounded-start-1"
-                        alt="preview"
-                        style="min-width: 40px; min-height: 40px"
-                      />
-                    </div>
-                    <div class="col col-8">
-                      <div class="card-body">
-                        <h6 class="card-title">playlist name</h6>
-                      </div>
+              </div>
+              <div class="card mb-3 border-0">
+                <div class="row g-0">
+                  <div class="col col-4">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      class="img-fluid rounded-start-1"
+                      alt="preview"
+                      style="min-width: 40px; min-height: 40px"
+                    />
+                  </div>
+                  <div class="col col-8">
+                    <div class="card-body">
+                      <h6 class="card-title">playlist name</h6>
                     </div>
                   </div>
                 </div>
-                <div class="card mb-3 border-0">
-                  <div class="row g-0">
-                    <div class="col col-4">
-                      <img
-                        src="./assets/imgs/main/image-1.jpg"
-                        class="img-fluid rounded-start-1"
-                        alt="preview"
-                        style="min-width: 40px; min-height: 40px"
-                      />
-                    </div>
-                    <div class="col col-8">
-                      <div class="card-body">
-                        <h6 class="card-title">playlist name</h6>
-                      </div>
+              </div>
+              <div class="card mb-3 border-0">
+                <div class="row g-0">
+                  <div class="col col-4">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      class="img-fluid rounded-start-1"
+                      alt="preview"
+                      style="min-width: 40px; min-height: 40px"
+                    />
+                  </div>
+                  <div class="col col-8">
+                    <div class="card-body">
+                      <h6 class="card-title">playlist name</h6>
                     </div>
                   </div>
                 </div>
-              
+              </div>
             </div>
 
             <!-- cards grandi -->
@@ -510,5 +512,8 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="./scripts/homepage.js"></script>
   </body>
 </html>
+
+
