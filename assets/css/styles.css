@@ -1,11 +1,17 @@
 .card i {
   font-size: 1.6rem !important;
 }
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
 
 .card-body img {
   width: auto !important;
   height: 25px !important;
 }
+
 /* MODIFICHE NAVBAR FOOTER ---------------------------------------*/
 footer .navbar {
   padding-top: 0rem;
@@ -43,8 +49,10 @@ footer .nav-link h6 {
   margin: 0;
 }
 /* FINE MODIFICHE NAVBAR FOOTER---------------------------------- */
-main {
-  margin-bottom: 4.5rem;
+@media screen and (max-width: 749px) {
+  main {
+    margin-bottom: 4.5rem;
+  }
 }
 .img-rotated {
   width: 53px;
@@ -72,7 +80,7 @@ main {
   font-size: 6px;
   padding: 6px !important;
 }
-/* barra musica */
+/* barra musica ________________________________________*/
 
 .music-bar {
   position: sticky;
@@ -81,16 +89,35 @@ main {
   border-radius: 10px;
   color: white;
   padding: 5px;
-
+}
+#progress-bar {
+  height: 5px;
+  width: 80%;
+}
+#rep i {
+  margin-right: 20px;
+}
+#play {
+  color: white;
+  font-size: 30px;
 }
 
 @media screen and (min-width: 750px) {
-  .music-bar{
+  footer {
+    display: none;
+  }
+  .music-bar {
     bottom: 0px;
     width: 100%;
     height: 70px;
-    margin: 0 auto;
-  }  
+    margin: 0;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .cuore {
+    top: 16px;
+    left: 227px;
+  }
 }
 
 .music-bar img {
