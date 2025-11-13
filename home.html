@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body data-bs-theme="dark">
-    <header class="d-md-none">
-      <nav class="navbar bg-dark justify-content-between fixed-top">
+    <header>
+      <nav class="navbar bg-dark justify-content-between fixed-top d-md-none">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Buongiornissimo</a>
           <div class="d-flex flex-row" id="navbarNavDropdown">
@@ -66,8 +66,8 @@
         </div>
       </nav>
     </header>
-    <main class="container-fluid mt-3 mx-md-0 px-md-0">
-      <section class="container-fluid mt-5">
+    <main class="container-fluid mt-3 mt-md-0 mx-md-0 px-md-0">
+      <section class="container-fluid mt-5 mt-md-0">
         <div class="row">
           <!-- sezione aside sinistra -->
           <div class="col col-3 d-none d-md-flex bg-black">
@@ -77,36 +77,25 @@
                   <i class="bi bi-three-dots"></i>
                 </div>
                 <div class="col flex-column text-start mt-3">
-                  <div class="row row-col-2 d-flex">
-                    <a
-                      href="./home.html"
-                      class="text-decoration-none d-flex text-white align-items-center"
-                    >
-                      <div class="col col-2">
-                        <i class="bi bi-house-door-fill"></i>
-                      </div>
-                      <div class="col col-10"><p>Home</p></div>
-                    </a>
+                  <div class="row row-col-2">
+                    <div class="col col-2">
+                      <i class="bi bi-house-door-fill"></i>
+                    </div>
+                    <div class="col col-10"><a href="home.html">Home</a></div>
                   </div>
                   <div class="row">
-                    <a
-                      href="./search-page.html"
-                      class="text-decoration-none d-flex text-white align-items-center"
-                    >
-                      <div class="col col-2"><i class="bi bi-search"></i></div>
-                      <div class="col col-10"><p>Cerca</p></div>
-                    </a>
+                    <div class="col col-2"><i class="bi bi-search"></i></div>
+                    <div class="col col-10">
+                      <a href="search-page.html">Cerca</a>
+                    </div>
                   </div>
                   <div class="row">
-                    <a
-                      href="#"
-                      class="text-decoration-none d-flex text-white align-items-center"
-                    >
-                      <div class="col col-2">
-                        <i class="bi bi-collection"></i>
-                      </div>
-                      <div class="col col-10"><p>La tua libreria</p></div>
-                    </a>
+                    <div class="col col-2">
+                      <i class="bi bi-collection"></i>
+                    </div>
+                    <div class="col col-10">
+                      <a href="#">La tua libreria</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -163,7 +152,7 @@
                 <div class="row g-0">
                   <div class="col col-4">
                     <img
-                      src="./assets/imgs/main/image-1.jpg"
+                      src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840c489c9523ae48b2c3d96177"
                       class="img-fluid rounded-start-1"
                       alt="preview"
                       style="min-width: 40px; min-height: 40px"
@@ -171,207 +160,19 @@
                   </div>
                   <div class="col col-8">
                     <div class="card-body">
-                      <h6 class="card-title">playlist name</h6>
+                      <h6 class="card-title">Brani che ti piacciono</h6>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card mb-3 border-0">
-                <div class="row g-0">
-                  <div class="col col-4">
-                    <img
-                      src="./assets/imgs/main/image-1.jpg"
-                      class="img-fluid rounded-start-1"
-                      alt="preview"
-                      style="min-width: 40px; min-height: 40px"
-                    />
-                  </div>
-                  <div class="col col-8">
-                    <div class="card-body">
-                      <h6 class="card-title">playlist name</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-0">
-                <div class="row g-0">
-                  <div class="col col-4">
-                    <img
-                      src="./assets/imgs/main/image-1.jpg"
-                      class="img-fluid rounded-start-1"
-                      alt="preview"
-                      style="min-width: 40px; min-height: 40px"
-                    />
-                  </div>
-                  <div class="col col-8">
-                    <div class="card-body">
-                      <h6 class="card-title">playlist name</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-0">
-                <div class="row g-0">
-                  <div class="col col-4">
-                    <img
-                      src="./assets/imgs/main/image-1.jpg"
-                      class="img-fluid rounded-start-1"
-                      alt="preview"
-                      style="min-width: 40px; min-height: 40px"
-                    />
-                  </div>
-                  <div class="col col-8">
-                    <div class="card-body">
-                      <h6 class="card-title">playlist name</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-0">
-                <div class="row g-0">
-                  <div class="col col-4">
-                    <img
-                      src="./assets/imgs/main/image-1.jpg"
-                      class="img-fluid rounded-start-1"
-                      alt="preview"
-                      style="min-width: 40px; min-height: 40px"
-                    />
-                  </div>
-                  <div class="col col-8">
-                    <div class="card-body">
-                      <h6 class="card-title">playlist name</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-0">
-                <div class="row g-0">
-                  <div class="col col-4">
-                    <img
-                      src="./assets/imgs/main/image-1.jpg"
-                      class="img-fluid rounded-start-1"
-                      alt="preview"
-                      style="min-width: 40px; min-height: 40px"
-                    />
-                  </div>
-                  <div class="col col-8">
-                    <div class="card-body">
-                      <h6 class="card-title">playlist name</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!-- altre cards create con js -->
             </div>
 
             <!-- cards grandi -->
             <div class="col">
               <div class="container-fluid">
-                <div class="row w-100 mx-1">
-                  <div class="card bg-gradient border-0 rounded-3 mb-5">
-                    <div class="row m-3">
-                      <div class="col">
-                        <img
-                          src="./assets/imgs/main/image-1.jpg"
-                          class="img-fluid shadow-lg"
-                          alt="preview"
-                          style="min-width: 45px; min-height: 45px"
-                        />
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <p class="small text-secondary my-0">playlist</p>
-                          <h6 class="card-title my-0">Playlist name</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <a class="link-success">
-                          <i class="bi bi-heart-fill"></i
-                        ></a>
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </div>
-                      <div
-                        class="col d-flex align-items-center justify-content-end"
-                      >
-                        <p class="small text-secondary me-2 my-0">16 brani</p>
-
-                        <i
-                          class="btn btn-dark rounded-circle bi bi-play-fill fs-5 px-1 py-0"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card bg-gradient border-0 rounded-3 mb-5">
-                    <div class="row m-3">
-                      <div class="col">
-                        <img
-                          src="./assets/imgs/main/image-1.jpg"
-                          class="img-fluid shadow-lg"
-                          alt="preview"
-                          style="min-width: 45px; min-height: 45px"
-                        />
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <p class="small text-secondary my-0">playlist</p>
-                          <h6 class="card-title my-0">Playlist name</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <a class="link-success">
-                          <i class="bi bi-heart-fill"></i
-                        ></a>
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </div>
-                      <div
-                        class="col d-flex align-items-center justify-content-end"
-                      >
-                        <p class="small text-secondary me-2 my-0">16 brani</p>
-
-                        <i
-                          class="btn btn-dark rounded-circle bi bi-play-fill fs-5 px-1 py-0"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card bg-gradient border-0 rounded-3 mb-5">
-                    <div class="row m-3">
-                      <div class="col">
-                        <img
-                          src="./assets/imgs/main/image-1.jpg"
-                          class="img-fluid shadow-lg"
-                          alt="preview"
-                          style="min-width: 45px; min-height: 45px"
-                        />
-                      </div>
-                      <div class="col">
-                        <div class="card-body">
-                          <p class="small text-secondary my-0">playlist</p>
-                          <h6 class="card-title my-0">Playlist name</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <a class="link-success">
-                          <i class="bi bi-heart-fill"></i
-                        ></a>
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </div>
-                      <div
-                        class="col d-flex align-items-center justify-content-end"
-                      >
-                        <p class="small text-secondary me-2 my-0">16 brani</p>
-
-                        <i
-                          class="btn btn-dark rounded-circle bi bi-play-fill fs-5 px-1 py-0"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
+                <div id="big-cards" class="row w-100 mx-1">
+                  <!-- cards caricate con js -->
                 </div>
               </div>
             </div>
@@ -394,19 +195,23 @@
               <div
                 class="row row-cols-1 flex-column align-items-middle text-muted mt-2"
               >
-                <div class="col">
+                <div class="col friend">
                   <div class="row row-cols-3 flex-nowrap">
                     <div class="col col-2 px-0">
                       <img
                         src="./assets/imgs/accounts/betta-profile.jpg"
-                        class="img img-fluid rounded-circle"
+                        class="img img-fluid rounded-circle mb-1"
                       />
                     </div>
-                    <div class="col col-8 px-0">
-                      <div class="row flex-column">
-                        <h6>Artista</h6>
-                        <p>canzone</p>
-                        <p><i class="bi bi-vinyl pe-2"></i>EP III</p>
+                    <div class="col col-8 px-0 mb-1">
+                      <div class="row flex-column ms-2 mb-4">
+                        <h6><a href="#">Elisabetta</a></h6>
+                        <a class="song-name" href="./artist-page.html"
+                          >canzone</a
+                        >
+                        <a class="album-name" href="./album-details.html"
+                          ><i class="bi bi-vinyl pe-2"></i>EP III</a
+                        >
                       </div>
                     </div>
                     <div class="col col-2 px-0">
@@ -414,19 +219,23 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col friend">
                   <div class="row row-cols-3 flex-nowrap">
                     <div class="col col-2 px-0">
                       <img
-                        src="./assets/imgs/accounts/betta-profile.jpg"
-                        class="img img-fluid rounded-circle"
+                        src="./assets/imgs/accounts/lucio.png"
+                        class="img img-fluid rounded-circle mb-1"
                       />
                     </div>
-                    <div class="col col-8 px-0">
-                      <div class="row flex-column">
-                        <h6>Artista</h6>
-                        <p>canzone</p>
-                        <p><i class="bi bi-vinyl pe-2"></i>EP III</p>
+                    <div class="col col-8 px-0 mb-1">
+                      <div class="row flex-column ms-2 mb-4">
+                        <h6><a href="#">Lucio</a></h6>
+                        <a class="song-name" href="./artist-page.html"
+                          >canzone</a
+                        >
+                        <a class="album-name" href="./album-details.html"
+                          ><i class="bi bi-vinyl pe-2"></i>EP III</a
+                        >
                       </div>
                     </div>
                     <div class="col col-2 px-0">
@@ -434,21 +243,47 @@
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col friend">
                   <div class="row row-cols-3">
                     <div class="col col-2 px-0">
                       <img
-                        src="./assets/imgs/accounts/betta-profile.jpg"
-                        class="img img-fluid rounded-circle"
+                        src="./assets/imgs/accounts/rossella.png"
+                        class="img img-fluid rounded-circle mb-1"
                       />
                     </div>
-                    <div class="col col-8 px-0">
-                      <div class="row flex-column">
-                        <h6>Artista</h6>
-                        <p>canzone</p>
-                        <p>
-                          <i class="bi bi-music-note-beamed pe-2"></i>EP III
-                        </p>
+                    <div class="col col-8 px-0 mb-1">
+                      <div class="row flex-column ms-2 mb-4">
+                        <h6><a href="#">Rossella</a></h6>
+                        <a class="song-name" href="./artist-page.html"
+                          >canzone</a
+                        >
+                        <a class="album-name" href="./album-details.html"
+                          ><i class="bi bi-music-note-beamed pe-2"></i>EP III</a
+                        >
+                      </div>
+                    </div>
+                    <div class="col col-2 px-0">
+                      <p>4 ore</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col friend">
+                  <div class="row row-cols-3 flex-nowrap">
+                    <div class="col col-2 px-0">
+                      <img
+                        src="./assets/imgs/accounts/salvatore.png"
+                        class="img img-fluid rounded-circle mb-1"
+                      />
+                    </div>
+                    <div class="col col-8 px-0 mb-1">
+                      <div class="row flex-column ms-2 mb-4">
+                        <h6><a href="#">Salvatore</a></h6>
+                        <a class="song-name" href="./artist-page.html"
+                          >canzone</a
+                        >
+                        <a class="album-name" href="./album-details.html"
+                          ><i class="bi bi-vinyl pe-2"></i>EP III</a
+                        >
                       </div>
                     </div>
                     <div class="col col-2 px-0">
@@ -461,21 +296,57 @@
           </div>
         </div>
       </section>
-      <!-- barra player -->
+      <!-- barra player ----------------------------------------------------------------------->
       <div class="music-bar container">
-        <div class="row row-cols-2 align-items-center">
-          <div class="track-info col col-7 px-1">
+        <div class="row align-items-center">
+          <!-- prima colonna -->
+          <div class="track-info col-7 col-md-3 px-1">
             <img
               class="float-start mx-2 my-2"
               src="./assets/imgs/search/image-11.jpg"
             /><!--immagine artista -->
-            <div class="text-start my1">
+            <div class="text-start my1 row-md row-cols-md-2 position-relative">
               <strong>Supernatural Parody</strong>
               <br />
               <small>by blabla</small>
+              <div>
+                <i
+                  class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
+                ></i>
+              </div>
             </div>
           </div>
-          <div class="track-controls col col-5 text-end">
+          <!--colonna 2- barra progresso- solo da md in poi -->
+          <div
+            class="col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column"
+          >
+            <div id="rep" class="mb-0">
+              <i class="bi bi-shuffle"></i><i class="bi bi-skip-start-fill"></i
+              ><i id="play" class="bi bi-play-circle-fill"></i
+              ><i class="bi bi-skip-end-fill"></i><i class="bi bi-repeat"></i>
+            </div>
+            <div id="progress-bar" class="progress mt-1 mb-2">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 0%"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <!-- colonna 3 solo in md -->
+          <div class="d-none d-md-inline-block col-md-3 text-end">
+            <i class="bi bi-mic me-2"></i
+            ><i class="bi bi-border-width mx-2"></i>
+            <i class="bi bi-speaker mx-2"></i
+            ><i class="bi bi-volume-up mx-2"></i
+            ><i class="bi bi-arrows-fullscreen mx-2"></i>
+          </div>
+          <!-- colonna 3 solo in mobile -->
+          <div class="row-row-cols-3 d-none d-md-inline-block"></div>
+          <div class="track-controls col col-5 col-md-3 d-md-none text-end">
             <i class="bi bi-speaker"></i>
             <i class="bi bi-heart ms-3"></i>
             <i class="bi bi-play-fill ms-3"></i>
