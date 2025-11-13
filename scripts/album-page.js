@@ -1,3 +1,4 @@
+const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 let albumURL = localStorage.getItem('albumURL');
 console.log(albumURL);
 
@@ -8,6 +9,7 @@ const smallArtist = document.getElementById('smallArtistImg');
 const artistName = document.getElementById('artistName');
 const albumYear = document.getElementById('albumYear');
 const songsList = document.getElementById('songsList');
+const card = document.getElementById('album_card');
 
 const loadArtist = function () {
   fetch(albumURL)
@@ -28,11 +30,41 @@ const loadArtist = function () {
       albumTitle.innerText = albumDetails.title;
       albumYear.innerText = parseInt(albumDetails.release_date);
 
+      const artistID = albumDetails.artist.id;
+      const artistAncor = document.querySelector('.artistAncor');
+
+      artistAncor.addEventListener('click', () => {
+        const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
+        localStorage.setItem('artistURL', artistURL);
+      });
+      // sfumatura colore ------------------------------------------------------------------------------------------
+      const img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.src = albumDetails.cover_big;
+
+      const colorThief = new ColorThief();
+      if (img.complete) {
+        const dominantColor = colorThief.getColor(img);
+        console.log(dominantColor);
+        card.style.background = `linear-gradient(0deg, #212529 50%, rgb(${dominantColor.join(
+          ','
+        )}) 100%)`;
+      } else {
+        img.addEventListener('load', function () {
+          const dominantColor = colorThief.getColor(img);
+          console.log('Dominant color:', dominantColor);
+          card.style.background = `linear-gradient(0deg, #212529 50%, rgb(${dominantColor.join(
+            ','
+          )}) 100%)`;
+          // Cambia lo sfondo della card in base al colore dominante
+        });
+      }
+
       for (let i = 0; i < albumDetails.tracks.data.length; i++) {
         songsList.innerHTML += `
         <div class="col">
         <h5 class="m-0">${albumDetails.tracks.data[i].title}</h5>
-        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].name}</p>
+        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].rank}</p>
         </div>
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>

@@ -1,6 +1,3 @@
-// const allTheParameters = new URLSearchParams(location.search);
-// const id = allTheParameters.get(id);
-
 const albumUrl = 'https://striveschool-api.herokuapp.com/api/deezer/album/';
 const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 const artistUrl = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
@@ -123,24 +120,31 @@ const loadAlbumsSmallCards = function () {
         const title = albumData.title;
 
         artistAlbums.innerHTML += `
-              <div class="card mb-3 border-0">
-              <div class="row g-0">
-                <div class="col col-4">
-                  <img
-                    src="${cover}"
-                    class="img-fluid rounded-start-1"
-                    alt="preview"
-                    style="min-width: 40px; min-height: 40px"
-                  />
-                </div>
-                <div class="col col-8">
-                  <div class="card-body">
-                    <h6 class="card-title">${title}</h6>
-                  </div>
+        <div class="col" >
+           <div class="row g-0">
+              <div class="col col-4">
+                <a class="albumAncor" href="./album-details.html">
+                  <img src="${cover}" class="img-fluid rounded-start-1" alt="preview" style="min-width: 40px; min-height: 40px"/>
+                </a>
+              </div>
+              <div class="col col-8">
+                <div class="card-body align-content-center ps-3">
+                  <a class="albumAncor" href="./album-details.html">
+                   <h6 class="card-title">${title}</h6>
+                  </a>
                 </div>
               </div>
             </div>
+         </div>   
         `;
+
+        const albumAncor = document.querySelectorAll('.albumAncor');
+        albumAncor.forEach((element) => {
+          element.addEventListener('click', () => {
+            const albumURL = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumID}`;
+            localStorage.setItem('albumURL', albumURL);
+          });
+        });
       })
       .catch((err) => {
         console.log('error:', err);
@@ -168,8 +172,12 @@ const loadAlbumsBigCards = function () {
         const title = albumData.title;
         const artist = albumData.artist.name;
         const nTracks = albumData.nb_tracks;
+        const artistID = albumData.artist.id;
 
-        artistAlbums.innerHTML += `
+        const card = document.createElement('div');
+        card.className = 'row w-100 mx-1';
+
+        card.innerHTML += `
            <div class="card bg-gradient border-0 rounded-3 mb-5">
                     <div class="row m-3">
                       <div class="col">
@@ -206,13 +214,17 @@ const loadAlbumsBigCards = function () {
                     </div>
                   </div>
         `;
-        const artistAncor = artistAlbums.querySelector('.artistAncor');
-        const artistID = albumData.artist.id;
-        const albumAncor = artistAlbums.querySelector('.albumAncor');
+
+        artistAlbums.appendChild(card);
+
+        const artistAncor = card.querySelector('.artistAncor');
+        const albumAncor = card.querySelector('.albumAncor');
+
         artistAncor.addEventListener('click', () => {
           const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
           localStorage.setItem('artistURL', artistURL);
         });
+
         albumAncor.addEventListener('click', () => {
           const albumURL = `https://striveschool-api.herokuapp.com/api/deezer/album/${currentAlbumID}`;
           localStorage.setItem('albumURL', albumURL);
