@@ -69,7 +69,7 @@ const getSongDetails = () => {
               >
               <div class="text-start">
                 <button
-                  class="btn btn-success btn-lg px-4 fw-semibold rounded-pill fs-6" id="play_btn"
+                  class="btn btn-success btn-lg px-4 fw-semibold rounded-pill fs-6 play_btns"
                 >
                   Play
                 </button>
@@ -89,26 +89,34 @@ const getSongDetails = () => {
     </div>
   </div>
 </div>
-      `
+      `;
 
-      const play_btn = document.getElementById("play_btn")
+      const play_btns = document.getElementsByClassName("play_btns")
       const playerText = document.getElementById("playerText")
+      const albumCoverPlayer = docu = "album_small_cover"
       let audio = new Audio(albumTrack.preview)
-        play_btn.addEventListener(
+        
+      for (let i = 0; i < play_btns.length; i++){
+        play_btns[i].addEventListener(
           "click",
           (togglePlay = () => {
-            play_btn.innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+            play_btns[
+              i
+            ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
             playerText.innerHTML = `
+              <img src="${albumTrack.album.cover_small}"/>
               <h6>${albumTrack.title}</h6>
               <p>di ${albumTrack.artist.name}</p>`
+            
             if (audio.paused) {
               audio.play()
             } else {
               audio.pause()
-              play_btn.innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+              play_btns[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
             }
           })
         )
+      }
       
     })
     .catch((err) => {
