@@ -23,13 +23,16 @@ const loadArtist = function () {
       const artistImgToChange = document.getElementById('artist-img');
       const artistHeader = document.getElementById('artist_header');
       const fansNumber = document.getElementById('fansNumber');
+      const txtToChange = document.getElementById('txt-to-change');
 
       artistNameToChange.innerText = artistFullName;
+      txtToChange.innerText = `8 brani di ${artistFullName}`;
       artistImgToChange.src = artistImg;
       artistHeader.style.backgroundImage = `url(${artistImg})`;
       fansNumber.innerText = artistFans;
       let artistName = artistFullName.trim();
       console.log(artistName);
+
 
       // riempire sezione albums popolari:
       let searchArtistURL = searchURL + artistName;
@@ -49,8 +52,11 @@ const loadArtist = function () {
 
           for (let i = 0; i < 5; i++) {
             const popularAlbums = document.getElementById('popular-albums');
+            const currentAlbumID = songsArray.data[i].album.id;
 
-            popularAlbums.innerHTML += `<li>
+            const li = document.createElement('li');
+
+            li.innerHTML = `<a class="albumAncor" href="./album-details.html">
           <div class="row align-items-center">
           <div class="col col-2">
           <img id="pop-alb-img"
@@ -65,12 +71,20 @@ const loadArtist = function () {
           <div class="col d-flex justify-content-end">
           <i class="bi bi-three-dots-vertical"></i>
           </div>
-          </div>
-          </li>
+          </div></a>
+          
           `;
+
+            const albumAncor = li.querySelector('.albumAncor');
+
+            albumAncor.addEventListener('click', () => {
+              const albumURL = `https://striveschool-api.herokuapp.com/api/deezer/album/${currentAlbumID}`;
+              localStorage.setItem('albumURL', albumURL);
+            });
+
+            popularAlbums.appendChild(li);
           }
         })
-
         .catch((err) => {
           console.log('error:', err);
         });
@@ -79,12 +93,6 @@ const loadArtist = function () {
     .catch((err) => {
       console.log('error:', err);
     });
-
-  // window.location.assign("artist-page.html")
-  // - inserire gli ID nella artists page
-  // .catch((err) => {
-  //   console.log('error:', err);
-  // });
 };
 
 loadArtist();

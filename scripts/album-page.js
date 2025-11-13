@@ -1,3 +1,4 @@
+const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 let albumURL = localStorage.getItem('albumURL');
 console.log(albumURL);
 
@@ -28,11 +29,19 @@ const loadArtist = function () {
       albumTitle.innerText = albumDetails.title;
       albumYear.innerText = parseInt(albumDetails.release_date);
 
+      const artistID = albumDetails.artist.id;
+      const artistAncor = document.querySelector('.artistAncor');
+
+      artistAncor.addEventListener('click', () => {
+        const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
+        localStorage.setItem('artistURL', artistURL);
+      });
+
       for (let i = 0; i < albumDetails.tracks.data.length; i++) {
         songsList.innerHTML += `
         <div class="col">
         <h5 class="m-0">${albumDetails.tracks.data[i].title}</h5>
-        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].name}</p>
+        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].rank}</p>
         </div>
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
