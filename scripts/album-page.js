@@ -31,7 +31,7 @@ const loadArtist = function () {
         songsList.innerHTML += `
         <div class="col">
         <h5 class="m-0">${albumDetails.tracks.data[i].title}</h5>
-        <p class="m-0 small text-secondary">${albumDetails.artist.name}</p>
+        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].rank} ascolti</p>
         </div>
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
