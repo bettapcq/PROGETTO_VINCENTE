@@ -85,7 +85,7 @@ const loadArtist = function () {
               ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
               playerText.innerHTML = `
               <h6>${albumDetails.tracks.data[i].title}</h6>
-              <p>di ${albumDetails.tracks.data[i].name}</p>`
+              <p>di ${albumDetails.tracks.data[i].artist.name}</p>`
               if (audio.paused) {
                 audio.play()
               } else {
@@ -108,7 +108,7 @@ const loadArtist = function () {
             page_play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
             playerText.innerHTML = `
               <h6>${albumDetails.tracks.data[0].title}</h6>
-              <p>di ${albumDetails.tracks.data[0].name}</p>`
+              <p>di ${albumDetails.tracks.data[0].artist.name}</p>`
             if (audio.paused) {
               audio.play()
             } else {
