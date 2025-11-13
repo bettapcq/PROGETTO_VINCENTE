@@ -36,6 +36,7 @@ const loadArtist = function () {
       artistAncor.addEventListener('click', () => {
         const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
         localStorage.setItem('artistURL', artistURL);
+        
       });
       // sfumatura colore ------------------------------------------------------------------------------------------
       const img = new Image();
@@ -64,7 +65,7 @@ const loadArtist = function () {
         songsList.innerHTML += `
         <div class="col">
         <h5 class="m-0">${albumDetails.tracks.data[i].title}</h5>
-        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].rank}</p>
+        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].rank} Ascolti</p>
         </div>
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
