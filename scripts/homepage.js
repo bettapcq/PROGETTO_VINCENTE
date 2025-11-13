@@ -69,12 +69,12 @@ const getSongDetails = () => {
               >
               <div class="text-start">
                 <button
-                  class="btn btn-success btn-lg px-4 fw-semibold rounded-pill fs-6 play_btns"
+                  class="btn btn-success fw-semibold rounded-pill fs-6 play_btns"
                 >
                   Play
                 </button>
                 <button
-                  class="btn btn-outline-light btn-lg px-4 fw-semibold rounded-pill bg-dark text-white border-white fs-6"
+                  class="btn btn-outline-light fw-semibold rounded-pill bg-dark text-white border-white fs-6"
                 >
                   Salva
                 </button>
@@ -102,17 +102,22 @@ const getSongDetails = () => {
           (togglePlay = () => {
             play_btns[
               i
-            ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+            ].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0 pause_btn"></i>`
             playerText.innerHTML = `
               <h6>${albumTrack.title}</h6>
-              <p>di ${albumTrack.artist.name}</p>`
+              <p>di ${albumTrack.artist.name}</p>
+              <i
+                  class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
+                ></i>`
             albumCoverPlayer.setAttribute("src", albumTrack.album.cover_small)
 
             if (audio.paused) {
               audio.play()
             } else {
               audio.pause()
-              play_btns[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+              play_btns[
+                i
+              ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
             }
           })
         )
