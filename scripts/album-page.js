@@ -9,6 +9,7 @@ const smallArtist = document.getElementById('smallArtistImg');
 const artistName = document.getElementById('artistName');
 const albumYear = document.getElementById('albumYear');
 const songsList = document.getElementById('songsList');
+const card = document.getElementById('album_card');
 
 const loadArtist = function () {
   fetch(albumURL)
@@ -36,6 +37,28 @@ const loadArtist = function () {
         const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
         localStorage.setItem('artistURL', artistURL);
       });
+      // sfumatura colore ------------------------------------------------------------------------------------------
+      const img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.src = albumDetails.cover_big;
+
+      const colorThief = new ColorThief();
+      if (img.complete) {
+        const dominantColor = colorThief.getColor(img);
+        console.log(dominantColor);
+        card.style.background = `linear-gradient(0deg, #212529 50%, rgb(${dominantColor.join(
+          ','
+        )}) 100%)`;
+      } else {
+        img.addEventListener('load', function () {
+          const dominantColor = colorThief.getColor(img);
+          console.log('Dominant color:', dominantColor);
+          card.style.background = `linear-gradient(0deg, #212529 50%, rgb(${dominantColor.join(
+            ','
+          )}) 100%)`;
+          // Cambia lo sfondo della card in base al colore dominante
+        });
+      }
 
       for (let i = 0; i < albumDetails.tracks.data.length; i++) {
         songsList.innerHTML += `
