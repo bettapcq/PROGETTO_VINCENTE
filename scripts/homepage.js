@@ -69,7 +69,7 @@ const getSongDetails = () => {
               >
               <div class="text-start">
                 <button
-                  class="btn btn-success btn-lg px-4 fw-semibold rounded-pill fs-6"
+                  class="btn btn-success btn-lg px-4 fw-semibold rounded-pill fs-6" id="play_btn"
                 >
                   Play
                 </button>
@@ -89,7 +89,27 @@ const getSongDetails = () => {
     </div>
   </div>
 </div>
-      `;
+      `
+
+      const play_btn = document.getElementById("play_btn")
+      const playerText = document.getElementById("playerText")
+      let audio = new Audio(albumTrack.preview)
+        play_btn.addEventListener(
+          "click",
+          (togglePlay = () => {
+            play_btn.innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+            playerText.innerHTML = `
+              <h6>${albumTrack.title}</h6>
+              <p>di ${albumTrack.artist.name}</p>`
+            if (audio.paused) {
+              audio.play()
+            } else {
+              audio.pause()
+              play_btn.innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+            }
+          })
+        )
+      
     })
     .catch((err) => {
       alert('Ops! Errore dal server:' + err);
