@@ -1,5 +1,4 @@
 let albumURL = localStorage.getItem('albumURL');
-console.log(albumURL);
 
 const albumCover = document.getElementById('album_cover');
 const albumCoverPlayer = document.getElementById('albumCoverPlayer');
@@ -32,7 +31,7 @@ const loadArtist = function () {
         songsList.innerHTML += `
         <div class="col">
         <h5 class="m-0">${albumDetails.tracks.data[i].title}</h5>
-        <p class="m-0 small text-secondary">${albumDetails.tracks.data[i].name}</p>
+        <p class="m-0 small text-secondary">${albumDetails.artist.name}</p>
         </div>
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
@@ -41,8 +40,9 @@ const loadArtist = function () {
         //   funzione small play buttons
         const play_btn = document.getElementsByClassName('play_btn');
         const playerText = document.getElementById('playerText');
-        let audio = new Audio(albumDetails.tracks.data[i].preview);
+        
         for (let i = 0; i < play_btn.length; i++) {
+          let audio = new Audio(albumDetails.tracks.data[i].preview)
           play_btn[i].addEventListener(
             'click',
             (togglePlay = () => {
