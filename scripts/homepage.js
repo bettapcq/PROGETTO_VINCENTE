@@ -117,6 +117,7 @@ const getSongDetails = () => {
 
             if (audio.paused) {
               audio.play()
+              localStorage.setItem("isPaused", false)
               
               for (let i = 0; i < play_btns.length; i++) {
                 play_btns[
@@ -130,7 +131,7 @@ const getSongDetails = () => {
                   i
                 ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
               }
-              localStorage.setItem("isPaused", audio.paused)
+              localStorage.setItem("isPaused", true)
               console.log(localStorage.getItem("isPaused"))
               
             }
