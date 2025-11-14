@@ -28,7 +28,7 @@ const getSongDetails = () => {
 
       const artistID = albumTrack.artist.id
       const artistDetailsURL = artistUrl + artistID
-      localStorage.setItem("artistURL", artistDetailsURL)
+
       console.log(artistDetailsURL)
       const songDiv = document.getElementById("songCard")
       songDiv.innerHTML = `
@@ -100,9 +100,6 @@ const getSongDetails = () => {
         play_btns[i].addEventListener(
           "click",
           (togglePlay = () => {
-            play_btns[
-              i
-            ].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0 pause_btn"></i>`
             playerText.innerHTML = `
               <h6>${albumTrack.title}</h6>
               <p>di ${albumTrack.artist.name}</p>
@@ -111,16 +108,36 @@ const getSongDetails = () => {
                 ></i>`
             albumCoverPlayer.setAttribute("src", albumTrack.album.cover_small)
 
+            localStorage.setItem("songTitle", albumTrack.title)
+            localStorage.setItem("songAuthor", albumTrack.artist.name)
+            localStorage.setItem("songCover", albumTrack.album.cover_small)
+            localStorage.setItem("trackAudio", audio)
+
             if (audio.paused) {
               audio.play()
+              
+              for (let i = 0; i < play_btns.length; i++) {
+                play_btns[
+                  i
+                ].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
+              }
             } else {
               audio.pause()
-              play_btns[
-                i
-              ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
+              for (let i = 0; i < play_btns.length; i++) {
+                play_btns[
+                  i
+                ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
+              }
+              localStorage.setItem("paused", true)
             }
           })
         )
+      }
+        
+      
+        play_btns.forEach = (btn) => {
+          btn.innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
+
       }
     })
     .catch((err) => {
