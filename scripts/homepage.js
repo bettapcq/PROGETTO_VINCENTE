@@ -1,36 +1,36 @@
-const albumUrl = 'https://striveschool-api.herokuapp.com/api/deezer/album/';
-const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
-const artistUrl = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
+const albumUrl = "https://striveschool-api.herokuapp.com/api/deezer/album/"
+const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`
+const artistUrl = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
 
-const deepPurpleID = 5953987;
-const eminemId = 13;
-const eminemAlbumId = 119606;
+const deepPurpleID = 5953987
+const eminemId = 13
+const eminemAlbumId = 119606
 
-const albumURL = albumUrl + eminemAlbumId;
+const albumURL = albumUrl + eminemAlbumId
 
-localStorage.setItem('albumURL', albumURL);
+localStorage.setItem("albumURL", albumURL)
 
-const songSection = document.getElementById('songCard');
+const songSection = document.getElementById("songCard")
 
 const getSongDetails = () => {
   fetch(albumUrl + eminemAlbumId)
     .then((res) => {
       if (res.ok) {
-        return res.json();
+        return res.json()
       } else {
-        throw new Error('Ops! Errore dalla risposta:', res.status);
+        throw new Error("Ops! Errore dalla risposta:", res.status)
       }
     })
     .then((songDetails) => {
-      console.log(songDetails);
-      const albumTrack = songDetails.tracks.data[5];
-      console.log(albumTrack);
+      console.log(songDetails)
+      const albumTrack = songDetails.tracks.data[5]
+      console.log(albumTrack)
 
-      const artistID = albumTrack.artist.id;
-      const artistDetailsURL = artistUrl + artistID;
-      localStorage.setItem('artistURL', artistDetailsURL);
-      console.log(artistDetailsURL);
-      const songDiv = document.getElementById('songCard');
+      const artistID = albumTrack.artist.id
+      const artistDetailsURL = artistUrl + artistID
+
+      console.log(artistDetailsURL)
+      const songDiv = document.getElementById("songCard")
       songDiv.innerHTML = `
   <div class="col">
   <div class="container-fluid">
@@ -89,47 +89,70 @@ const getSongDetails = () => {
     </div>
   </div>
 </div>
-      `;
+      `
 
-      const play_btns = document.getElementsByClassName('play_btns');
-      const playerText = document.getElementById('playerText');
-      const albumCoverPlayer = document.getElementById('album_small_cover');
-      let audio = new Audio(albumTrack.preview);
+      const play_btns = document.getElementsByClassName("play_btns")
+      const playerText = document.getElementById("playerText")
+      const albumCoverPlayer = document.getElementById("album_small_cover")
+      let audio = new Audio(albumTrack.preview)
+      console.log(audio)
+
 
       for (let i = 0; i < play_btns.length; i++) {
         play_btns[i].addEventListener(
-          'click',
+          "click",
           (togglePlay = () => {
-            play_btns[
-              i
-            ].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0 pause_btn"></i>`;
             playerText.innerHTML = `
               <h6>${albumTrack.title}</h6>
               <p>di ${albumTrack.artist.name}</p>
               <i
                   class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
-                ></i>`;
-            albumCoverPlayer.setAttribute('src', albumTrack.album.cover_small);
+                ></i>`
+            albumCoverPlayer.setAttribute("src", albumTrack.album.cover_small)
+
+            localStorage.setItem("songTitle", albumTrack.title)
+            localStorage.setItem("songAuthor", albumTrack.artist.name)
+            localStorage.setItem("songCover", albumTrack.album.cover_small)
+            localStorage.setItem("trackAudio", albumTrack.preview)
 
             if (audio.paused) {
-              audio.play();
+              audio.play()
+              localStorage.setItem("isPaused", false)
+              
+              for (let i = 0; i < play_btns.length; i++) {
+                play_btns[
+                  i
+                ].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
+              }
             } else {
-              audio.pause();
-              play_btns[
-                i
-              ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`;
+              audio.pause()
+              for (let i = 0; i < play_btns.length; i++) {
+                play_btns[
+                  i
+                ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
+              }
+              localStorage.setItem("isPaused", true)
+              console.log(localStorage.getItem("isPaused"))
+              
             }
           })
-        );
+        )
+      }
+        
+      
+        play_btns.forEach = (btn) => {
+          btn.innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
+
       }
     })
     .catch((err) => {
-      alert('Ops! Errore dal server:' + err);
-    });
-};
+      alert("Ops! Errore dal server:" + err)
+    })
+}
 
-getSongDetails();
+getSongDetails()
 
+// funzione riempi albums
 // funzione riempi albums
 const albumsArray1 = ['1127912', '851331162', '324179237', '8446705', '104188'];
 
@@ -208,26 +231,26 @@ loadAlbumsSmallCards();
 
 const loadAlbumsBigCards = function () {
   for (let i = 0; i < albumsArray2.length; i++) {
-    const currentAlbumID = albumsArray2[i];
+    const currentAlbumID = albumsArray2[i]
     fetch(albumUrl + currentAlbumID)
       .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
-          throw new Error('Ops! Errore dalla risposta: ' + res.status);
+          throw new Error("Ops! Errore dalla risposta: " + res.status)
         }
       })
       .then((albumData) => {
-        console.log('album data', albumData);
-        const artistAlbums = document.getElementById('big-cards');
-        const cover = albumData.cover_medium;
-        const title = albumData.title;
-        const artist = albumData.artist.name;
-        const nTracks = albumData.nb_tracks;
-        const artistID = albumData.artist.id;
+        console.log("album data", albumData)
+        const artistAlbums = document.getElementById("big-cards")
+        const cover = albumData.cover_medium
+        const title = albumData.title
+        const artist = albumData.artist.name
+        const nTracks = albumData.nb_tracks
+        const artistID = albumData.artist.id
 
-        const card = document.createElement('div');
-        card.className = 'row w-100 mx-1';
+        const card = document.createElement("div")
+        card.className = "row w-100 mx-1"
 
         card.innerHTML += `
            <div class="card bg-gradient border-0 rounded-3 mb-5">
@@ -265,60 +288,60 @@ const loadAlbumsBigCards = function () {
                       </div>
                     </div>
                   </div>
-        `;
+        `
 
-        artistAlbums.appendChild(card);
+        artistAlbums.appendChild(card)
 
-        const artistAncor = card.querySelector('.artistAncor');
-        const albumAncor = card.querySelector('.albumAncor');
+        const artistAncor = card.querySelector(".artistAncor")
+        const albumAncor = card.querySelector(".albumAncor")
 
-        artistAncor.addEventListener('click', () => {
-          const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
-          localStorage.setItem('artistURL', artistURL);
-        });
+        artistAncor.addEventListener("click", () => {
+          const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`
+          localStorage.setItem("artistURL", artistURL)
+        })
 
-        albumAncor.addEventListener('click', () => {
-          const albumURL = `https://striveschool-api.herokuapp.com/api/deezer/album/${currentAlbumID}`;
-          localStorage.setItem('albumURL', albumURL);
-        });
+        albumAncor.addEventListener("click", () => {
+          const albumURL = `https://striveschool-api.herokuapp.com/api/deezer/album/${currentAlbumID}`
+          localStorage.setItem("albumURL", albumURL)
+        })
       })
       .catch((err) => {
-        console.log('error:', err);
-      });
+        console.log("error:", err)
+      })
   }
-};
+}
 
-loadAlbumsBigCards();
+loadAlbumsBigCards()
 
 // funzione riempi amici:
-const artistArray = ['acdc', 'deeppurple', 'tupac', '50cent'];
+const artistArray = ["acdc", "deeppurple", "tupac", "50cent"]
 
 const fillFriendsAside = function () {
-  const friends = document.querySelectorAll('.friend'); // seleziona i div "amico"
+  const friends = document.querySelectorAll(".friend") // seleziona i div "amico"
 
   friends.forEach((friend, index) => {
-    const artist = artistArray[index];
+    const artist = artistArray[index]
 
     fetch(searchURL + artist)
       .then((res) => {
-        if (res.ok) return res.json();
-        else throw new Error(res.status);
+        if (res.ok) return res.json()
+        else throw new Error(res.status)
       })
       .then((data) => {
         if (data.data.length > 0) {
-          const firstSong = data.data[0];
-          const songDiv = friend.querySelector('.song-name');
-          songDiv.innerText = firstSong.title;
-          const artistID = firstSong.artist.id;
+          const firstSong = data.data[0]
+          const songDiv = friend.querySelector(".song-name")
+          songDiv.innerText = firstSong.title
+          const artistID = firstSong.artist.id
 
-          songDiv.addEventListener('click', () => {
-            const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
-            localStorage.setItem('artistURL', artistURL);
-          });
+          songDiv.addEventListener("click", () => {
+            const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`
+            localStorage.setItem("artistURL", artistURL)
+          })
         }
       })
-      .catch((err) => console.log('Errore:', err));
-  });
-};
+      .catch((err) => console.log("Errore:", err))
+  })
+}
 
-fillFriendsAside();
+fillFriendsAside()
