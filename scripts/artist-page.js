@@ -25,59 +25,98 @@ const fillPlayer = function (title, author, cover, audio, pause) {
                     class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
                   ></i>`
 
-  // for (let i = 0; i < play_btns.length; i++) {
-  //   play_btns[i].addEventListener("click", function () {
-  //     if (pause === true) {
-  //       audio.pause()
-  //       for (let i = 0; i < play_btns.length; i++) {
-  //         play_btns[
-  //           i
-  //         ].innerHTML = `<i class="bi bi-play-fill play_btns fs-5 m-0"></i>`
-  //         audio.play()
-  //         play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
-  //       }
-  //     } else {
-  //       audio.play()
-  //       for (let i = 0; i < play_btns.length; i++) {
-  //         play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
-  //         audio.pause()
-  //         play_btns[
-  //           i
-  //         ].innerHTML = `<i class="bi bi-play-fill play_btns fs-5 m-0"></i>`
-  //       }
-  //     }
-  //   })
-  // }
+  // stato iniziale del player da local storage
+  if (pause === true) {
+    audio.pause()
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML =
+        '<i class="bi bi-play-fill play_btns fs-5 m-0"></i>'
+    }
+  } else {
+    audio.play()
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+    }
+  }
+
   for (let i = 0; i < play_btns.length; i++) {
     play_btns[i].addEventListener(
       "click",
       (togglePlay = () => {
-        if (pause === true) {
-          audio.pause()
-          localStorage.setItem("isPaused", true)
-
-          for (let i = 0; i < play_btns.length; i++) {
-            play_btns[
-              i
-            ].innerHTML = `<i class="bi bi-play-fill play_btns fs-5 m-0"></i>`
+        if (audio.paused) {
+          audio.play()
+          localStorage.setItem("isPaused", "false")
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
           }
         } else {
-          audio.play()
-          for (let i = 0; i < play_btns.length; i++) {
-            play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
+          audio.pause()
+          localStorage.setItem("isPaused", "true")
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-play-fill fs-5 m-0"></i>'
           }
-          localStorage.setItem("isPaused", false)
         }
       })
     )
   }
-
-  play_btns.forEach = (btn) => {
-    btn.innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
-  }
 }
 
 fillPlayer(songTitle, songAuthor, songCover, savedAudio, boolean)
+
+// const songTitle = localStorage.getItem("songTitle")
+// const songAuthor = localStorage.getItem("songAuthor")
+// const songCover = localStorage.getItem("songCover")
+// const trackAudio = localStorage.getItem("trackAudio")
+// const isPausedFromStorage = localStorage.getItem("isPaused") === "true"
+
+// const savedAudio = new Audio(trackAudio)
+
+// const fillPlayer = function (title, author, cover, audio, isPaused) {
+//   const playerText = document.getElementById("playerText")
+//   const albumCoverPlayer = document.getElementById("album_small_cover")
+//   const play_btns = document.getElementsByClassName("play_btns")
+
+//   albumCoverPlayer.setAttribute("src", cover)
+//   playerText.innerHTML = `
+//     <h6>${title}</h6>
+//     <p>di ${author}</p>
+//     <i class="cuore bi bi-heart d-none d-md-inline-block position-absolute"></i>`
+
+//   // stato iniziale del player
+//   if (isPaused) {
+//     audio.pause()
+//     for (let i = 0; i < play_btns.length; i++) {
+//       play_btns[i].innerHTML =
+//         '<i class="bi bi-play-fill play_btns fs-5 m-0"></i>'
+//     }
+//   } else {
+//     audio.play()
+//     for (let i = 0; i < play_btns.length; i++) {
+//       play_btns[i].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+//     }
+//   }
+
+//   // listener per i bottoni play/pause
+//   for (let i = 0; i < play_btns.length; i++) {
+//     play_btns[i].addEventListener("click", () => {
+//       if (audio.paused) {
+//         audio.play()
+//         localStorage.setItem("isPaused", "false")
+//         for (let j = 0; j < play_btns.length; j++) {
+//           play_btns[j].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+//         }
+//       } else {
+//         audio.pause()
+//         localStorage.setItem("isPaused", "true")
+//         for (let j = 0; j < play_btns.length; j++) {
+//           play_btns[j].innerHTML = '<i class="bi bi-play-fill fs-5 m-0"></i>'
+//         }
+//       }
+//     })
+//   }
+// }
+
+// fillPlayer(songTitle, songAuthor, songCover, savedAudio, isPausedFromStorage)
 
 // riempire sezione header dell'artista:
 

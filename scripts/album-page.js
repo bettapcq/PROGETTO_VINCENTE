@@ -1,15 +1,78 @@
-const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
-let albumURL = localStorage.getItem('albumURL');
-console.log(albumURL);
+const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`
+let albumURL = localStorage.getItem("albumURL")
+console.log(albumURL)
 
-const albumCover = document.getElementById('album_cover');
-const albumCoverPlayer = document.getElementById('albumCoverPlayer');
-const albumTitle = document.getElementById('albumTitle');
-const smallArtist = document.getElementById('smallArtistImg');
-const artistName = document.getElementById('artistName');
-const albumYear = document.getElementById('albumYear');
-const songsList = document.getElementById('songsList');
-const card = document.getElementById('album_card');
+// recuperare il contenuto del player
+const songTitle = localStorage.getItem("songTitle")
+const songAuthor = localStorage.getItem("songAuthor")
+const songCover = localStorage.getItem("songCover")
+const trackAudio = localStorage.getItem("trackAudio")
+const isPaused = localStorage.getItem("isPaused")
+console.log(isPaused)
+const boolean = isPaused === "true"
+
+const savedAudio = new Audio(trackAudio)
+
+const fillPlayer = function (title, author, cover, audio, pause) {
+  const playerText = document.getElementById("playerText")
+  const albumCoverPlayer = document.getElementById("album_small_cover")
+  const play_btns = document.getElementsByClassName("play_btns")
+  albumCoverPlayer.setAttribute("src", cover)
+  playerText.innerHTML = `
+                <h6>${title}</h6>
+                <p>di ${author}</p>
+                <i
+                    class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
+                  ></i>`
+
+  // stato iniziale del player da local storage
+  if (pause === true) {
+    audio.pause()
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML =
+        '<i class="bi bi-play-fill play_btns fs-5 m-0"></i>'
+    }
+  } else {
+    audio.play()
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+    }
+  }
+
+  for (let i = 0; i < play_btns.length; i++) {
+    play_btns[i].addEventListener(
+      "click",
+      (togglePlay = () => {
+        if (audio.paused) {
+          audio.play()
+          localStorage.setItem("isPaused", "false")
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+          }
+        } else {
+          audio.pause()
+          localStorage.setItem("isPaused", "true")
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-play-fill fs-5 m-0"></i>'
+          }
+        }
+      })
+    )
+  }
+}
+
+fillPlayer(songTitle, songAuthor, songCover, savedAudio, boolean)
+
+// funzione load Artist
+
+const albumCover = document.getElementById("album_cover")
+const albumCoverPlayer = document.getElementById("albumCoverPlayer")
+const albumTitle = document.getElementById("albumTitle")
+const smallArtist = document.getElementById("smallArtistImg")
+const artistName = document.getElementById("artistName")
+const albumYear = document.getElementById("albumYear")
+const songsList = document.getElementById("songsList")
+const card = document.getElementById("album_card")
 
 const loadArtist = function () {
   fetch(albumURL)
@@ -30,35 +93,34 @@ const loadArtist = function () {
       albumTitle.innerText = albumDetails.title
       albumYear.innerText = parseInt(albumDetails.release_date)
 
-      const artistID = albumDetails.artist.id;
-      const artistAncor = document.querySelector('.artistAncor');
+      const artistID = albumDetails.artist.id
+      const artistAncor = document.querySelector(".artistAncor")
 
-      artistAncor.addEventListener('click', () => {
-        const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
-        localStorage.setItem('artistURL', artistURL);
-        
-      });
+      artistAncor.addEventListener("click", () => {
+        const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`
+        localStorage.setItem("artistURL", artistURL)
+      })
       // sfumatura colore ------------------------------------------------------------------------------------------
-      const img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.src = albumDetails.cover_big;
+      const img = new Image()
+      img.crossOrigin = "Anonymous"
+      img.src = albumDetails.cover_big
 
-      const colorThief = new ColorThief();
+      const colorThief = new ColorThief()
       if (img.complete) {
-        const dominantColor = colorThief.getColor(img);
-        console.log(dominantColor);
+        const dominantColor = colorThief.getColor(img)
+        console.log(dominantColor)
         card.style.background = `linear-gradient(0deg, #212529 50%, rgb(${dominantColor.join(
-          ','
-        )}) 100%)`;
+          ","
+        )}) 100%)`
       } else {
-        img.addEventListener('load', function () {
-          const dominantColor = colorThief.getColor(img);
-          console.log('Dominant color:', dominantColor);
+        img.addEventListener("load", function () {
+          const dominantColor = colorThief.getColor(img)
+          console.log("Dominant color:", dominantColor)
           card.style.background = `linear-gradient(0deg, #212529 50%, rgb(${dominantColor.join(
-            ','
-          )}) 100%)`;
+            ","
+          )}) 100%)`
           // Cambia lo sfondo della card in base al colore dominante
-        });
+        })
       }
 
       for (let i = 0; i < albumDetails.tracks.data.length; i++) {
@@ -95,7 +157,6 @@ const loadArtist = function () {
             })
           )
         }
-
       }
 
       const page_play_btns = document.getElementsByClassName("page_play_btn")
@@ -105,7 +166,9 @@ const loadArtist = function () {
         page_play_btns[i].addEventListener(
           "click",
           (togglePlay = () => {
-            page_play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+            page_play_btns[
+              i
+            ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
             playerText.innerHTML = `
               <h6>${albumDetails.tracks.data[0].title}</h6>
               <p>di ${albumDetails.tracks.data[0].artist.name}</p>`
@@ -113,7 +176,9 @@ const loadArtist = function () {
               audio.play()
             } else {
               audio.pause()
-              page_play_btns[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+              page_play_btns[
+                i
+              ].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
             }
           })
         )
