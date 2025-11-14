@@ -56,7 +56,7 @@
                     <div class="col col-2">
                       <i class="bi bi-plus-square-fill"></i>
                     </div>
-                    <div class="col col-10"><a href="#">Crea playlist</a></div>
+                    <div class="col col-10"><p>Crea playlist</p></div>
                   </div>
                   <div class="row row-cols-2">
                     <div class="col col-2 text-start">
@@ -66,18 +66,18 @@
                         class="icona-preferiti"
                       />
                     </div>
-                    <div class="col col-10"><a href="#">Brani che ti piacciono</a></div>
+                    <div class="col col-10"><p>Brani che ti piacciono</p></div>
                   </div>
                   <div class="row row-cols-2">
                     <div class="col col-2 text-start">
                       <i class="bi bi-bookmark-fill bookmark-icon"></i>
                     </div>
-                    <div class="col col-10"><a href="#">I tuoi episodi</a></div>
+                    <div class="col col-10"><p>I tuoi episodi</p></div>
                   </div>
                 </div>
               </div>
               <div class="row row-cols-1 mt-3 text-start">
-               <div class="col"><p>Chi sei goku non lo sai</p></div>
+                <div class="col"><p>Chi sei goku non lo sai</p></div>
                 <div class="col"><p>GNX</p></div>
                 <div class="col"><p>Baby On Baby</p></div>
                 <div class="col"><p>Brigantony</p></div>
@@ -124,9 +124,12 @@
           <!-- artist header -->
           <div class="col col-12 col-md-7">
             <div id="artist_header">
-             <a href="home.html" class="btn btn-secondary rounded-circle px-1 py-0">
-  <i class="bi bi-arrow-left"></i>
-</a>
+              <a
+                href="home.html"
+                class="btn btn-secondary rounded-circle px-1 py-0"
+              >
+                <i class="bi bi-arrow-left"></i>
+              </a>
 
               <h1 id="artist-name" class="fw-bolder text-white w-75">
                 Pinguini Tattici Nucleari
@@ -180,10 +183,10 @@
                   <p>Attività amici</p>
                 </div>
                 <div class="col col-2">
-                  <i class="bi bi-person-add text-muted" style="cursor: pointer"></i>
+                  <i class="bi bi-person-add text-muted"></i>
                 </div>
                 <div class="col col-2">
-                  <i class="bi bi-plus-lg text-muted" style="cursor: pointer"></i>
+                  <i class="bi bi-plus-lg text-muted"></i>
                 </div>
               </div>
               <div
@@ -268,20 +271,21 @@
       </div>
       <!-- barra player -->
       <div class="music-bar container">
-        <div class="row align-items-center">
+        <div class="row justify-content-between align-items-center">
           <!-- prima colonna -->
           <div class="track-info col-7 col-md-3 px-1">
             <img
               class="float-start mx-2 my-2"
-              src="./assets/imgs/search/image-11.jpg"
+              src="./assets/imgs/logo.svg"
+              id="album_small_cover"
             /><!--immagine artista -->
-            <div class="text-start my1 row-md row-cols-md-2 position-relative">
-              <strong>Supernatural Parody</strong>
-              <br />
-              <small>by blabla</small>
+            <div
+              class="text-start my1 row-md row-cols-md-2 position-relative"
+              id="playerText"
+            >
               <div>
                 <i
-                  class="cuore bi bi-heart d-none d-md-inline-block position-absolute"style="cursor: pointer"
+                  class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
                 ></i>
               </div>
             </div>
@@ -291,9 +295,12 @@
             class="col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column"
           >
             <div id="rep" class="mb-0">
-              <i class="bi bi-shuffle"style="cursor: pointer"></i><i class="bi bi-skip-start-fill"style="cursor: pointer"></i
-              ><i id="play" class="bi bi-play-circle-fill"></i
-              ><i class="bi bi-skip-end-fill"style="cursor: pointer"></i><i class="bi bi-repeat"style="cursor: pointer"></i>
+              <i class="bi bi-shuffle"></i><i class="bi bi-skip-start-fill"></i
+              ><button
+                class="btn btn-success border-0 rounded-circle me-3 play_btns"
+              >
+                <i class="bi bi-play-fill fs-5 m-0"></i></button
+              ><i class="bi bi-skip-end-fill"></i><i class="bi bi-repeat"></i>
             </div>
             <div id="progress-bar" class="progress mt-1 mb-2">
               <div
@@ -308,21 +315,26 @@
           </div>
           <!-- colonna 3 solo in md -->
           <div class="d-none d-md-inline-block col-md-3 text-end">
-            <i class="bi bi-mic me-2"style="cursor: pointer"></i
-            ><i class="bi bi-border-width mx-2"style="cursor: pointer"></i>
-            <i class="bi bi-speaker mx-2"style="cursor: pointer"></i
-            ><i class="bi bi-volume-up mx-2"style="cursor: pointer"></i
-            ><i class="bi bi-arrows-fullscreen mx-2"style="cursor: pointer"></i>
+            <i class="bi bi-mic me-2"></i
+            ><i class="bi bi-border-width mx-2"></i>
+            <i class="bi bi-speaker mx-2"></i
+            ><i class="bi bi-volume-up mx-2"></i
+            ><i class="bi bi-arrows-fullscreen mx-2"></i>
           </div>
           <!-- colonna 3 solo in mobile -->
-          <div class="row-row-cols-3 d-none d-md-inline-block"></div>
-          <div class="track-controls col col-5 col-md-3 d-md-none text-end">
-            <i class="bi bi-speaker"style="cursor: pointer"></i>
-            <i class="bi bi-heart ms-3"style="cursor: pointer"></i>
-            <i class="bi bi-play-fill ms-3"style="cursor: pointer"></i>
+
+          <div
+            class="track-controls d-flex col col-5 col-md-3 d-md-none text-end align-items-center justify-content-end"
+          >
+            <i class="bi bi-speaker"></i>
+            <i class="bi bi-heart ms-3"></i>
+            <button class="btn btn-dark p-1 ms-2 border-0 play_btns">
+              <i class="bi bi-play-fill fs-6 m-0"></i>
+            </button>
           </div>
         </div>
       </div>
+      <!-- fine barra player -->
     </main>
     <footer class="opacity-75 d-md-none">
       <nav class="navbar bg-dark navbar-expand fixed-bottom">
@@ -330,7 +342,7 @@
           <div class="row row-cols-3 w-100 justify-content-evenly">
             <a
               class="nav-link p-3 text-center"
-              href="#"
+              href="./home.html"
               role="button"
               aria-expanded="false"
             >
@@ -340,7 +352,7 @@
 
             <a
               class="nav-link text-center p-3"
-              href="#"
+              href="./search-page.html"
               role="button"
               aria-expanded="false"
             >

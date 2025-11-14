@@ -2,6 +2,67 @@ let artistURL = localStorage.getItem('artistURL');
 const searchURL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 console.log(artistURL);
 
+// player function
+const songTitle = localStorage.getItem("songTitle")
+const songAuthor = localStorage.getItem("songAuthor")
+const songCover = localStorage.getItem("songCover")
+const trackAudio = localStorage.getItem("trackAudio")
+const isPaused = localStorage.getItem("isPaused")
+console.log(isPaused)
+const boolean = isPaused === "true"
+
+const savedAudio = new Audio(trackAudio)
+
+const fillPlayer = function (title, author, cover, audio, pause) {
+  const playerText = document.getElementById("playerText")
+  const albumCoverPlayer = document.getElementById("album_small_cover")
+  const play_btns = document.getElementsByClassName("play_btns")
+  albumCoverPlayer.setAttribute("src", cover)
+  playerText.innerHTML = `
+                <h6>${title}</h6>
+                <p>di ${author}</p>
+                <i
+                    class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
+                  ></i>`
+
+  // stato iniziale del player da local storage
+  if (pause === true) {
+    audio.pause()
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML =
+        '<i class="bi bi-play-fill play_btns fs-5 m-0"></i>'
+    }
+  } else {
+    audio.play()
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+    }
+  }
+
+  for (let i = 0; i < play_btns.length; i++) {
+    play_btns[i].addEventListener(
+      "click",
+      (togglePlay = () => {
+        if (audio.paused) {
+          audio.play()
+          localStorage.setItem("isPaused", "false")
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>'
+          }
+        } else {
+          audio.pause()
+          localStorage.setItem("isPaused", "true")
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-play-fill fs-5 m-0"></i>'
+          }
+        }
+      })
+    )
+  }
+}
+
+fillPlayer(songTitle, songAuthor, songCover, savedAudio, boolean)
+
 // riempire sezione header dell'artista:
 
 const loadArtist = function () {
@@ -74,14 +135,14 @@ const loadArtist = function () {
           
           `;
 
-            popularAlbums.appendChild(li);
-
             const albumAncor = li.querySelector('.albumAncor');
 
             albumAncor.addEventListener('click', () => {
               const albumURL = `https://striveschool-api.herokuapp.com/api/deezer/album/${currentAlbumID}`;
               localStorage.setItem('albumURL', albumURL);
             });
+
+            popularAlbums.appendChild(li);
           }
         })
         .catch((err) => {
