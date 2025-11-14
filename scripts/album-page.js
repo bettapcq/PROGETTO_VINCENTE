@@ -11,24 +11,86 @@ const albumYear = document.getElementById('albumYear');
 const songsList = document.getElementById('songsList');
 const card = document.getElementById('album_card');
 
+// player function
+const songTitle = localStorage.getItem('songTitle');
+const songAuthor = localStorage.getItem('songAuthor');
+const songCover = localStorage.getItem('songCover');
+const trackAudio = localStorage.getItem('trackAudio');
+const isPaused = localStorage.getItem('isPaused');
+console.log(isPaused);
+const boolean = isPaused === 'true';
+
+const savedAudio = new Audio(trackAudio);
+
+const fillPlayer = function (title, author, cover, audio, pause) {
+  const playerText = document.getElementById('playerText');
+  const albumCoverPlayer = document.getElementById('album_small_cover');
+  const play_btns = document.getElementsByClassName('play_btns');
+  albumCoverPlayer.setAttribute('src', cover);
+  playerText.innerHTML = `
+                <h6>${title}</h6>
+                <p>di ${author}</p>
+                <i
+                    class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
+                  ></i>`;
+
+  // stato iniziale del player da local storage
+  if (pause === true) {
+    audio.pause();
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML =
+        '<i class="bi bi-play-fill play_btns fs-5 m-0"></i>';
+    }
+  } else {
+    audio.play();
+    for (let i = 0; i < play_btns.length; i++) {
+      play_btns[i].innerHTML = '<i class="bi bi-pause-fill fs-5 m-0"></i>';
+    }
+  }
+
+  for (let i = 0; i < play_btns.length; i++) {
+    play_btns[i].addEventListener(
+      'click',
+      (togglePlay = () => {
+        if (audio.paused) {
+          audio.play();
+          localStorage.setItem('isPaused', false);
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML =
+              '<i class="bi bi-pause-fill fs-5 m-0"></i>';
+          }
+        } else {
+          audio.pause();
+          localStorage.setItem('isPaused', true);
+          for (let j = 0; j < play_btns.length; j++) {
+            play_btns[j].innerHTML = '<i class="bi bi-play-fill fs-5 m-0"></i>';
+          }
+        }
+      })
+    );
+  }
+};
+
+fillPlayer(songTitle, songAuthor, songCover, savedAudio, boolean);
+
 const loadArtist = function () {
   fetch(albumURL)
     .then((res) => {
       if (res.ok) {
-        return res.json()
+        return res.json();
       } else {
-        throw new Error(res.status)
+        throw new Error(res.status);
       }
     })
 
     .then((albumDetails) => {
-      console.log(albumDetails)
-      albumCover.setAttribute("src", albumDetails.cover_big)
-      albumCoverPlayer.setAttribute("src", albumDetails.cover_small)
-      smallArtist.setAttribute("src", albumDetails.artist.picture_small)
-      artistName.innerText = albumDetails.artist.name
-      albumTitle.innerText = albumDetails.title
-      albumYear.innerText = parseInt(albumDetails.release_date)
+      console.log(albumDetails);
+      albumCover.setAttribute('src', albumDetails.cover_big);
+      albumCoverPlayer.setAttribute('src', albumDetails.cover_small);
+      smallArtist.setAttribute('src', albumDetails.artist.picture_small);
+      artistName.innerText = albumDetails.artist.name;
+      albumTitle.innerText = albumDetails.title;
+      albumYear.innerText = parseInt(albumDetails.release_date);
 
       const artistID = albumDetails.artist.id;
       const artistAncor = document.querySelector('.artistAncor');
@@ -36,7 +98,6 @@ const loadArtist = function () {
       artistAncor.addEventListener('click', () => {
         const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
         localStorage.setItem('artistURL', artistURL);
-        
       });
       // sfumatura colore ------------------------------------------------------------------------------------------
       const img = new Image();
@@ -69,94 +130,97 @@ const loadArtist = function () {
         </div>
         <div class="col text-end">
         <button class="play_btn btn border-0"><i class="bi bi-play-fill fs-1"></i></button>
-        </div>`
+        </div>`;
 
         //   funzione small play buttons
-        const play_btn = document.getElementsByClassName("play_btn")
-        const playerText = document.getElementById("playerText")
+        const play_btn = document.getElementsByClassName('play_btn');
+        const playerText = document.getElementById('playerText');
 
         for (let i = 0; i < play_btn.length; i++) {
-          let audio = new Audio(albumDetails.tracks.data[i].preview)
+          let audio = new Audio(albumDetails.tracks.data[i].preview);
           play_btn[i].addEventListener(
-            "click",
+            'click',
             (togglePlay = () => {
               play_btn[
                 i
-              ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+              ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`;
               playerText.innerHTML = `
               <h6>${albumDetails.tracks.data[i].title}</h6>
-              <p>di ${albumDetails.tracks.data[i].artist.name}</p>`
+              <p>di ${albumDetails.tracks.data[i].artist.name}</p>`;
               if (audio.paused) {
-                audio.play()
+                audio.play();
               } else {
-                audio.pause()
-                play_btn[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+                audio.pause();
+                play_btn[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`;
               }
             })
-          )
+          );
         }
-
       }
 
-      const page_play_btns = document.getElementsByClassName("page_play_btn")
+      const page_play_btns = document.getElementsByClassName('page_play_btn');
 
-      let audio = new Audio(albumDetails.tracks.data[0].preview)
+      let audio = new Audio(albumDetails.tracks.data[0].preview);
       for (let i = 0; i < page_play_btns.length; i++) {
         page_play_btns[i].addEventListener(
-          "click",
+          'click',
           (togglePlay = () => {
-            page_play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`
+            page_play_btns[
+              i
+            ].innerHTML = `<i class="bi bi-pause-fill fs-1 pause_btn"></i>`;
             playerText.innerHTML = `
               <h6>${albumDetails.tracks.data[0].title}</h6>
-              <p>di ${albumDetails.tracks.data[0].artist.name}</p>`
+              <p>di ${albumDetails.tracks.data[0].artist.name}</p>`;
             if (audio.paused) {
-              audio.play()
+              audio.play();
             } else {
-              audio.pause()
-              page_play_btns[i].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`
+              audio.pause();
+              page_play_btns[
+                i
+              ].innerHTML = `<i class="bi bi-play-fill fs-1"></i>`;
             }
           })
-        )
+        );
       }
     })
 
     .catch((err) => {
-      console.log("error:", err)
-    })
-}
+      console.log('error:', err);
+    });
+};
 
-loadArtist()
+loadArtist();
 
 // funzione riempi amici:
 
-const artistArray = ["acdc", "deeppurple", "tupac", "50cent"]
+const artistArray = ['acdc', 'deeppurple', 'tupac', '50cent'];
 
 const fillFriendsAside = function () {
-  const friends = document.querySelectorAll(".friend") // seleziona i div "amico"
+  const friends = document.querySelectorAll('.friend'); // seleziona i div "amico"
 
   friends.forEach((friend, index) => {
-    const artist = artistArray[index]
+    const artist = artistArray[index];
 
     fetch(searchURL + artist)
       .then((res) => {
-        if (res.ok) return res.json()
-        else throw new Error(res.status)
+        if (res.ok) return res.json();
+        else throw new Error(res.status);
       })
       .then((data) => {
         if (data.data.length > 0) {
-          const firstSong = data.data[0]
-          const songDiv = friend.querySelector(".song-name")
-          songDiv.innerText = firstSong.title
-          const artistID = firstSong.artist.id
+          const firstSong = data.data[0];
+          const songDiv = friend.querySelector('.song-name');
+          songDiv.innerText = firstSong.title;
+          const artistID = firstSong.artist.id;
 
-          songDiv.addEventListener("click", () => {
-            const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`
-            localStorage.setItem("artistURL", artistURL)
-          })
+          songDiv.addEventListener('click', () => {
+            const artistURL = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
+            localStorage.setItem('artistURL', artistURL);
+          });
         }
       })
-      .catch((err) => console.log("Errore:", err))
-  })
-}
+      .catch((err) => console.log('Errore:', err));
+  });
+};
 
-fillFriendsAside()
+fillFriendsAside();
