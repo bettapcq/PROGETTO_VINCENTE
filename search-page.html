@@ -369,59 +369,69 @@
 
     <!-- barra player -->
     <div class="music-bar container">
-      <div class="row align-items-center">
-        <!-- prima colonna -->
-        <div class="track-info col-7 col-md-3 px-1">
-          <img
-            class="float-start mx-2 my-2"
-            src="./assets/imgs/search/image-11.jpg"
-          /><!--immagine artista -->
-          <div class="text-start my1 row-md row-cols-md-2 position-relative">
-            <strong>Supernatural Parody</strong>
-            <br />
-            <small>by blabla</small>
-            <div>
-              <i
-                class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
-              ></i>
+        <div class="row justify-content-between align-items-center">
+          <!-- prima colonna -->
+          <div class="track-info col-7 col-md-3 px-1">
+            <img
+              class="float-start mx-2 my-2"
+              src="./assets/imgs/logo.svg"
+              id="album_small_cover"
+            /><!--immagine artista -->
+            <div
+              class="text-start my1 row-md row-cols-md-2 position-relative"
+              id="playerText"
+            >
+              <div>
+                <i
+                  class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
+                ></i>
+              </div>
             </div>
           </div>
-        </div>
-        <!--colonna 2- barra progresso- solo da md in poi -->
-        <div
-          class="col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column"
-        >
-          <div id="rep" class="mb-0">
-            <i class="bi bi-shuffle"></i><i class="bi bi-skip-start-fill"></i
-            ><i id="play" class="bi bi-play-circle-fill"></i
-            ><i class="bi bi-skip-end-fill"></i><i class="bi bi-repeat"></i>
+          <!--colonna 2- barra progresso- solo da md in poi -->
+          <div
+            class="col-md-6 d-none d-md-flex justify-content-center align-items-center flex-column"
+          >
+            <div id="rep" class="mb-0">
+              <i class="bi bi-shuffle"></i><i class="bi bi-skip-start-fill"></i
+              ><button
+                class="btn btn-success border-0 rounded-circle me-3 play_btns"
+              >
+                <i class="bi bi-play-fill fs-5 m-0"></i></button
+              ><i class="bi bi-skip-end-fill"></i><i class="bi bi-repeat"></i>
+            </div>
+            <div id="progress-bar" class="progress mt-1 mb-2">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 0%"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
           </div>
-          <div id="progress-bar" class="progress mt-1 mb-2">
-            <div
-              class="progress-bar"
-              role="progressbar"
-              style="width: 0%"
-              aria-valuenow="0"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
+          <!-- colonna 3 solo in md -->
+          <div class="d-none d-md-inline-block col-md-3 text-end">
+            <i class="bi bi-mic me-2"></i
+            ><i class="bi bi-border-width mx-2"></i>
+            <i class="bi bi-speaker mx-2"></i
+            ><i class="bi bi-volume-up mx-2"></i
+            ><i class="bi bi-arrows-fullscreen mx-2"></i>
           </div>
-        </div>
-        <!-- colonna 3 solo in md -->
-        <div class="d-none d-md-inline-block col-md-3 text-end">
-          <i class="bi bi-mic me-2"></i><i class="bi bi-border-width mx-2"></i>
-          <i class="bi bi-speaker mx-2"></i><i class="bi bi-volume-up mx-2"></i
-          ><i class="bi bi-arrows-fullscreen mx-2"></i>
-        </div>
-        <!-- colonna 3 solo in mobile -->
-        <div class="row-row-cols-3 d-none d-md-inline-block"></div>
-        <div class="track-controls col col-5 col-md-3 d-md-none text-end">
-          <i class="bi bi-speaker"></i>
-          <i class="bi bi-heart ms-3"></i>
-          <i class="bi bi-play-fill ms-3"></i>
+          <!-- colonna 3 solo in mobile -->
+
+          <div
+            class="track-controls d-flex col col-5 col-md-3 d-md-none text-end align-items-center justify-content-end"
+          >
+            <i class="bi bi-speaker"></i>
+            <i class="bi bi-heart ms-3"></i>
+            <button class="btn btn-dark p-1 ms-2 border-0 play_btns">
+              <i class="bi bi-play-fill fs-6 m-0"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
   </main>
   <footer class="opacity-75 d-md-none">
     <nav class="navbar bg-dark navbar-expand fixed-bottom">
