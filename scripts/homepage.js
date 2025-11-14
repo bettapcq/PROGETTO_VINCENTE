@@ -95,6 +95,8 @@ const getSongDetails = () => {
       const playerText = document.getElementById("playerText")
       const albumCoverPlayer = document.getElementById("album_small_cover")
       let audio = new Audio(albumTrack.preview)
+      console.log(audio)
+
 
       for (let i = 0; i < play_btns.length; i++) {
         play_btns[i].addEventListener(
@@ -111,7 +113,7 @@ const getSongDetails = () => {
             localStorage.setItem("songTitle", albumTrack.title)
             localStorage.setItem("songAuthor", albumTrack.artist.name)
             localStorage.setItem("songCover", albumTrack.album.cover_small)
-            localStorage.setItem("trackAudio", audio)
+            localStorage.setItem("trackAudio", albumTrack.preview)
 
             if (audio.paused) {
               audio.play()
@@ -128,7 +130,9 @@ const getSongDetails = () => {
                   i
                 ].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
               }
-              localStorage.setItem("paused", true)
+              localStorage.setItem("isPaused", audio.paused)
+              console.log(localStorage.getItem("isPaused"))
+              
             }
           })
         )

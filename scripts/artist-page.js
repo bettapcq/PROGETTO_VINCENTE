@@ -7,11 +7,14 @@ const songTitle = localStorage.getItem("songTitle")
 const songAuthor = localStorage.getItem("songAuthor")
 const songCover = localStorage.getItem("songCover")
 const trackAudio = localStorage.getItem("trackAudio")
-const isPaused = localStorage.getItem("paused")
+const isPaused = localStorage.getItem("isPaused")
+const savedAudio = new Audio(trackAudio)
 
-const fillPlayer = function (title, author, cover, audio) {
+
+const fillPlayer = function (title, author, cover, audio, pause = false) {
   const playerText = document.getElementById("playerText")
   const albumCoverPlayer = document.getElementById("album_small_cover")
+  const play_btns = document.getElementsByClassName("play_btns")
   albumCoverPlayer.setAttribute("src", cover)
   playerText.innerHTML = `
                 <h6>${title}</h6>
@@ -20,21 +23,22 @@ const fillPlayer = function (title, author, cover, audio) {
                     class="cuore bi bi-heart d-none d-md-inline-block position-absolute"
                   ></i>`
 
-  if (audio.paused === isPaused) {
+  if (pause = true) {
     audio.pause()
     for (let i = 0; i < play_btns.length; i++) {
       play_btns[i].innerHTML = `<i class="bi bi-play-fill fs-5 m-0"></i>`
+      play_btns[i].addEventListener("click", audio.play())
     }
   } else {
     audio.play()
-    localStorage.setItem("playing", true)
     for (let i = 0; i < play_btns.length; i++) {
       play_btns[i].innerHTML = `<i class="bi bi-pause-fill fs-5 m-0"></i>`
+      play_btns[i].addEventListener("click", audio.pause())
     }
   }
 }
 
-fillPlayer(songTitle, songAuthor, songCover, trackAudio)
+fillPlayer(songTitle, songAuthor, songCover, savedAudio, isPaused)
 
 // riempire sezione header dell'artista:
 
